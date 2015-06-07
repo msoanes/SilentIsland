@@ -3,24 +3,24 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
-![feed-show]
+## Stream Show (landing page)
+![landing-page]
 
-## Blog Show
-![blog-show]
+## Song Form
+![song-form]
 
-## Post Show
-![post-show]
+## Song Detail
+![song-detail]
 
-## Post Form
-![post-form]
+## User Detail
+![user-detail]
 
 ## Search Results
 ![search-results]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
+[new-session]: ./wireframes/session_new.png
+[landing-page]: ./wireframes/landing_page.png
+[song-form]: ./wireframes/song_new.png
+[song-detail]: ./wireframes/song_detail.png
+[user-detail]: ./wireframes/user_detail.png
 [search-results]: ./wireframes/search_results.png
