@@ -1,24 +1,22 @@
-# Flux-capacitr
+# SilentIsland
 
 [Heroku link][heroku]
 
 [heroku]: http://flux-capacitr.herokuapp.com
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+SilentIsland is a music hosting and playing site, inspired by SoundCloud, built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts and profiles
+- [ ] Create sessions (log in)
+- [ ] Upload and tag songs
+- [ ] Listen to songs
+- [ ] Subscribe to tags
+- [ ] View a feed of songs with subscribed tags
+- [ ] Search for songs by description
+- [ ] Search for users by bio
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,63 +27,50 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: User Authentication, Song Creation (~1 day)
+I will implement a simple authentication system using the practices . By the end of this phase, users will be able to create accounts, log in and out, and create song entries using a simple text form in a Rails view. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
+### Phase 2: Uploading and Viewing Songs (~2 days)
+I will add API routes to serve song data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+phase, users will be able to upload song files using Filepicker.io, view individual songs, listen through the default HTML5 audio player, and view a list of all songs on the index page, from a single-page backbone application.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Song controls (~1 day)
+I will add a Backbone `AudioPlayer` View, which should always be present within the single-page backbone application. When I reach the end of this phase, users should be able to click the play button on songs and have them start playing in the `AudioPlayer`, as well as being able to pause and unpause, change volume, and skip to a particular position in the track, all through custom controls in the `AudioPlayer` View.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Feeds + Follows (~2 days)
+I will include associated songs from the Tags and Users `show`, and create a composite view containing a `SongsIndex` subview, as well as the relevant information for the Tag or User at hand. In addition, I will add a `stream` route to Songs, to return songs in the tags and users followed by the current user.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Searching for Songs and Users (~2 days)
+I'll need to add `search` routes to both the Users and Songs controllers. On the
+Backbone side, there will be a `SearchResults` composite view, containing
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
+- [ ] Listenings history
+- [ ] Playlists and play queues
 - [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
+- [ ] Recommendations based on past listens (item-based collaborative filtering)
+- [ ] Song and User comments
+- [ ] Song and User likes
 - [ ] Multiple sessions/session management
 - [ ] User avatars
+- [ ] Song cover images
 - [ ] Typeahead search bar
+- [ ] Trending songs
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-
+[phase-six]: ./docs/phases/phase6.md
