@@ -4,10 +4,13 @@
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::UsersController (show)
+Api::TagsController (show)
+Api::SongsController (stream)
 
 ### Views
-posts/feed.json.jbuilder
+users/show.json.jbuilder
+tags/show.json.jbuilder
 
 ## Backbone
 ### Models
@@ -15,6 +18,8 @@ posts/feed.json.jbuilder
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* TagShow (composite view, contains SongsIndex subviews)
+* UserShow (composite view, contains SongsIndex subviews)
+* Stream (composite view, contains SongsIndex subviews)
 
 ## Gems/Libraries

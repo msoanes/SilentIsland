@@ -1,29 +1,32 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Uploading and Viewing Songs
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+Api::SongsController (create, destroy, index, show)
+Api::TagsController (show)
 
 ### Views
-* blogs/show.json.jbuilder
+* songs/show.json.jbuilder
+* tags/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Tag
+* Song (parses nested `posts` association)
 
 ### Collections
-* Blogs
-* Posts
+* Tags
+* Songs
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* SongForm
+* SongShow
+* Stream (composite view, contains SongsIndex subviews)
+* SongsIndex (composite view, contains SongsIndexItem subviews)
+* SongsIndexItem
+* SongShow
 
 ## Gems/Libraries
+* Filepicker.io

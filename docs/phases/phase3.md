@@ -13,9 +13,7 @@
 ### Collections
 
 ### Views
-* PostForm
+* AudioPlayer
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown
+* Could use external libraries, playing around with HTML5 audio made it seem easy enough to do without. 
