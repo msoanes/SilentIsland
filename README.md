@@ -51,7 +51,7 @@ I will include associated songs from the Tags and Users `show`, and create a com
 
 ### Phase 5: Searching for Songs and Users (~2 days)
 I'll need to add `search` routes to both the Users and Songs controllers. On the
-Backbone side, there will be a `SearchResults` composite view, containing
+Backbone side, there will be a `SearchResults` composite view, containing a `SongsIndexView` and a `UsersIndexView`.
 
 [Details][phase-five]
 
