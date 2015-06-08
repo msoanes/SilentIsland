@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: https://silentisland.herokuapp.com/
 
 ## Minimum Viable Product
 SilentIsland is a music hosting and playing site, inspired by SoundCloud, built on Rails and Backbone. Users can:
