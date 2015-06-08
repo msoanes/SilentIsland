@@ -1,26 +1,29 @@
 # Schema Information
 
-## blogs
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
-title       | string    | not null
 
 ## followings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-follower_id | integer   | not null, foreign key (references users)
+column name     | data type | details
+--------------  |-----------|-----------------------
+id              | integer   | not null, primary key
+followable_id   | integer   | not null, foreign key (references tags/users)
+followable_type | string    | not null
+follower_id     | integer   | not null, foreign key (references users)
 
-## posts
+## listens
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
+song_id     | integer   | not null, foreign key (references songs)
+listener_id | integer   | not null, foreign key (references users)
+
+## songs
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+uploader_id | integer   | not null, foreign key (references users)
 title       | string    | not null
-body        | string    |
+description | string    |
+song_url    | string    | not null
 
 ## tags
 column name | data type | details
@@ -32,14 +35,14 @@ label       | string    | not null, unique
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
+song_id     | integer   | not null, foreign key (references songs)
 tag_id      | integer   | not null, foreign key (references tags)
 
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
+username        | string    | not null, unique
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
-
