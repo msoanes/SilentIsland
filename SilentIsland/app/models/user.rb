@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials(credentials)
     user = self.find_by(username: credentials[:username])
-    user && user.is_password?(credentials[:password])
+    user if user && user.is_password?(credentials[:password])
   end
 
   def reset_session_token!

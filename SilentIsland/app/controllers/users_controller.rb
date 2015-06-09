@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :login_forbidden
+
   def new
     @user = User.new
   end
