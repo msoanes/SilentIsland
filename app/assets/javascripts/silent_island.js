@@ -4,7 +4,11 @@ window.SilentIsland = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var router = new SilentIsland.Routers.Router({
+      posts: new SilentIsland.Collections.Songs(),
+      $rootEl: $('#main')
+    });
+    Backbone.history.start();
   }
 };
 
