@@ -28,7 +28,7 @@ SilentIsland is a music hosting and playing site, inspired by SoundCloud, built 
 ## Implementation Timeline
 
 ### Phase 1: User Authentication, Song Creation (~1 day)
-I will implement a simple authentication system using the practices . By the end of this phase, users will be able to create accounts, log in and out, and create song entries using a simple text form in a Rails view. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
+I will implement a simple authentication system. By the end of this phase, users will be able to create accounts, log in and out, and create song entries using a simple text form in a Rails view. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
 
 [Details][phase-one]
 
