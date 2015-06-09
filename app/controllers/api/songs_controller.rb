@@ -3,7 +3,7 @@ module Api
     def create
       @song = current_user.songs.new(song_params)
       if song.update(song_params)
-        render :json @song
+        render json: @song
       else
         render json: @song.errors.full_messages, status: :unprocessable_entity
       end
@@ -12,7 +12,7 @@ module Api
     def update
       @song = Song.find(params[:id])
       if @song.update(song_params)
-        render :json @song
+        render json: @song
       else
         render json: @song.errors.full_messages, status: :unprocessable_entity
       end
