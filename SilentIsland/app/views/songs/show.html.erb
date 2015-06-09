@@ -1,0 +1,10 @@
+<h1><%= @song.title %></h1>
+<p> by
+  <%= @song.uploader.username %>
+</p>
+<% if @song.description %>
+  <p><%= @song.description %></p>
+<% end %>
+
+<audio src="<%= @song.url %>" controls>
+</audio>

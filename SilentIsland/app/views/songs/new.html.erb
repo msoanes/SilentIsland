@@ -1,0 +1,18 @@
+<h1>New Song</h1>
+<form class="" action="<%= songs_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Title <br>
+    <input type="text" name="song[title]" value="<%= @song.title %>">
+  </label>
+  <br>
+  <label>Description <br>
+    <textarea name="song[description]" rows="8" cols="40"><%= @song.description %></textarea>
+  </label>
+<br>
+  <label>URL <br>
+    <input type="text" name="song[url]" value="<%= @song.url %>">
+  </label>
+<br>
+  <input type="submit" value="New Song">
+</form>

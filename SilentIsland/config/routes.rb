@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+
   root 'static_pages#root'
-  
+
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
+  resources :songs, only: [:new, :create, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
