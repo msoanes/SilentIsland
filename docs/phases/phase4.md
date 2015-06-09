@@ -4,13 +4,13 @@
 ### Models
 
 ### Controllers
-Api::UsersController (show)
-Api::TagsController (show)
-Api::SongsController (stream)
+* Api::UsersController (show)
+* Api::TagsController (show)
+* Api::SongsController (stream)
 
 ### Views
-users/show.json.jbuilder
-tags/show.json.jbuilder
+* users/show.json.jbuilder
+* tags/show.json.jbuilder
 
 ## Backbone
 ### Models
