@@ -4,8 +4,8 @@
 ### Models
 
 ### Controllers
-Api::SongsController (create, destroy, index, show)
-Api::TagsController (show)
+* Api::SongsController (create, destroy, index, show)
+* Api::TagsController (show)
 
 ### Views
 * songs/show.json.jbuilder
