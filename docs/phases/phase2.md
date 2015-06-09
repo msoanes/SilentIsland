@@ -14,7 +14,7 @@
 ## Backbone
 ### Models
 * Tag
-* Song (parses nested `posts` association)
+* Song (parses nested `tags` association)
 
 ### Collections
 * Tags
