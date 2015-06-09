@@ -45,7 +45,7 @@ I will add a Backbone `AudioPlayer` View, which should always be present within 
 [Details][phase-three]
 
 ### Phase 4: Feeds + Follows (~2 days)
-I will include associated songs from the Tags and Users `show`, and create a composite view containing a `SongsIndex` subview, as well as the relevant information for the Tag or User at hand. In addition, I will add a `stream` route to Songs, to return songs in the tags and users followed by the current user.
+I will include associated songs in the Tags and Users `show` views, and create a composite view containing a `SongsIndex` subview, as well as the relevant information for the Tag or User at hand. In addition, I will add a `stream` route to Songs, to return songs in the tags and users followed by the current user.
 
 [Details][phase-four]
 
