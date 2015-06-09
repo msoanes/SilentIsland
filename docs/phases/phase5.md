@@ -4,8 +4,6 @@
 ### Models
 
 ### Controllers
-Api::UsersController (search)
-Api::SongsController (search)
 
 ### Views
 
@@ -15,8 +13,8 @@ Api::SongsController (search)
 ### Collections
 
 ### Views
-* UsersIndex (composite view, contains UsersIndexItem subviews)
-* UsersIndexItem
-* SearchResults (composite view, contains UsersIndex and SongsIndex subviews)
+* SongQueue (composite view, contains SongQueuedItem subviews)
+* SongQueuedItem
+* AudioPlayer
 
 ## Gems/Libraries
