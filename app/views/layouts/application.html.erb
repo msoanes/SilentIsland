@@ -8,8 +8,9 @@
 </head>
 <body>
 
+<!-- Move into navbar -->
+
 <% if logged_in? %>
-  <%= link_to 'New Song', new_song_url %>
   <%= button_to 'Logout', session_url, method: :delete %>
 <% else %>
   <%= link_to 'Sign In', new_session_url %>
