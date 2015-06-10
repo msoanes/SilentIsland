@@ -18,15 +18,20 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
   },
 
   submit: function (event) {
-    event.preventDefault();
     var view = this;
+    event.preventDefault();
+
     var data = this.$('form').serializeJSON();
-    this.model.save(data, {
-      success: view.submitSuccess
+    data.test = "whatever"
+    var modelTest = new SilentIsland.Models.Song(data);
+    debugger;
+    modelTest.save([], {
+      success: view.submitSuccess.bind(view)
     });
   },
 
   submitSuccess: function (model) {
+    this.collection.add(model);
     Backbone.history.navigate(
       '#/songs/' + model.get('id'),
       { trigger: true }

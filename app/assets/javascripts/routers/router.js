@@ -26,6 +26,7 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
     var song = new SilentIsland.Models.Song();
     var view = new SilentIsland.Views.SongForm({
       model: song,
+      collection: this.songs,
       title: 'New Song'
     });
     this._swapView(view);
