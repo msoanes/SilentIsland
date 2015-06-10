@@ -2,7 +2,7 @@ module Api
   class SongsController < ApiController
     def create
       @song = current_user.songs.new(song_params)
-      if @song.update(song_params)
+      if @song.save
         render json: @song
       else
         render json: @song.errors.full_messages, status: :unprocessable_entity
@@ -20,7 +20,6 @@ module Api
 
     def show
       @song = Song.find(params[:id])
-      render json: @song # add jbuilder for this one
     end
 
     def index
@@ -35,7 +34,7 @@ module Api
 
     private
       def song_params
-        params.require(:song).permit(:title, :url, :description)
+        params.require(:song).permit(:title, :url, :description, tag_labels: [])
       end
   end
 end
