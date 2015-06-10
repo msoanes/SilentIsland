@@ -247,7 +247,6 @@
 
  .song-controls {
    clear: left;
-   overflow: hidden;
    padding: 0;
    margin: 0;
    position: relative;
@@ -263,13 +262,15 @@
    cursor: pointer;
    margin: 0;
    width: 100%;
+   overflow: hidden;
 }
 
  input.seeker::-webkit-slider-thumb {
    cursor: pointer;
    -webkit-appearance: none;
    height: 15px;
-   width: 12px;
+   width: 10px;
+   position: relative;
    background-color: #006030;
    border: 0;
    margin: 0;
@@ -327,6 +328,8 @@
  }
 
  .title small {
+   float: right;
+   margin-right: 20px;
    font-style: italic;
    color: #888;
    cursor: pointer;
@@ -337,20 +340,25 @@
 }
 
 button {
-  border: none;
   display: block;
   clear: right;
   margin: 10px 2px;
   font-size: 12pt;
   padding: 5px;
-  color: #444;
-  background-color: #bbb
+  color: #465;
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  transition: background-color 0.2s;
 }
 
 button:focus {
   outline: none;
 }
 
+button:hover {
+  background-color: #ccc;
+}
+
 button:active {
-  background-color: #666;
+  background-color: #bbb;
 }

@@ -11,7 +11,7 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     'click .play-button-main': 'togglePlay',
     'mousedown input.seeker': 'startSeek',
     'mouseup input.seeker': 'endSeek',
-    'change input.seeker': 'seek',
+    'input input.seeker': 'seek',
   },
 
   render: function () {
