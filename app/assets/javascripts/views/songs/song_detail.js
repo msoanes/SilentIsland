@@ -7,7 +7,6 @@ SilentIsland.Views.SongDetail = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ song: this.model }));
-    console.log(this.model);
     return this;
   }
 })
