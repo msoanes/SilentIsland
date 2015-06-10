@@ -10,6 +10,9 @@ window.SilentIsland = {
       songs: new SilentIsland.Collections.Songs(),
       $rootEl: $('#left-content')
     });
+
+    this.player = new SilentIsland.Views.AudioPlayer();
+    $('#right-content').html(this.player.render().$el);
     Backbone.history.start();
   }
 };
