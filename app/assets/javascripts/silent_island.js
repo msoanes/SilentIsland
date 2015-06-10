@@ -4,8 +4,8 @@ window.SilentIsland = {
   Views: {},
   Routers: {},
   initialize: function() {
-    var router = new SilentIsland.Routers.Router({
-      posts: new SilentIsland.Collections.Songs(),
+    this.router = new SilentIsland.Routers.Router({
+      songs: new SilentIsland.Collections.Songs(),
       $rootEl: $('#main')
     });
     Backbone.history.start();
