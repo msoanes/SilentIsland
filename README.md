@@ -9,14 +9,14 @@ SilentIsland is a music hosting and playing site, inspired by SoundCloud, built 
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts and profiles
-- [ ] Create sessions (log in)
+- [x] Create accounts and profiles
+- [x] Create sessions (log in)
 - [ ] Upload and tag songs
-- [ ] Listen to songs
+- [x] Listen to songs
 - [ ] Subscribe to tags
 - [ ] View a feed of songs with subscribed tags
 - [ ] Search for songs by description
-- [ ] Search for users by bio
+- [ ] Queue songs for automatic playback
 
 ## Design Docs
 * [View Wireframes][views]
