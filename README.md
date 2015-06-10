@@ -11,7 +11,7 @@ SilentIsland is a music hosting and playing site, inspired by SoundCloud, built 
 
 - [x] Create accounts and profiles
 - [x] Create sessions (log in)
-- [ ] Upload and tag songs
+- [x] Upload and tag songs
 - [x] Listen to songs
 - [ ] Subscribe to tags
 - [ ] View a feed of songs with subscribed tags
