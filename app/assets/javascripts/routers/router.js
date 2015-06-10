@@ -6,13 +6,18 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'songsIndex',
+    'songs/:id': 'songDetail'
   },
 
   songsIndex: function () {
     this.songs.fetch();
-    var view = new SilentIsland.Views.SongsIndex({
-      collection: this.songs,
-    });
+    var view = new SilentIsland.Views.SongsIndex({ collection: this.songs });
+    this._swapView(view);
+  },
+
+  songDetail: function (id) {
+    var song = this.songs.getOrFetch(id);
+    var view = new SilentIsland.Views.SongDetail({ model: song });
     this._swapView(view);
   },
 
