@@ -14,7 +14,7 @@
  *= require_self
  */
  html {
-   background-color: #a0b0a9;
+   background-color: #eeeeee;
  }
 
  body {
@@ -253,20 +253,26 @@
  }
 
  input[type=range] {
-   height: 5px;
+   padding: 0;
+   height: 10px;
    -webkit-appearance: none;
    background-color: #aaa;
    position: relative;
    cursor: pointer;
-   left: -2px;
+   margin: 0;
+   width: 290px;
+   left: -12px;
+   top: -14px;
  }
 
  input[type=range]::-webkit-slider-thumb {
    cursor: pointer;
    -webkit-appearance: none;
-   height: 20px;
-   width: 5px;
+   height: 12px;
+   width: 12px;
    background-color: #005025;
+   border: 0;
+   margin: 0;
  }
 
  .active.songs-list-item .song-info .song-title {
