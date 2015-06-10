@@ -133,7 +133,7 @@
    clear: both;
  }
 
- .title, .songs-list-item, .player, .song-form {
+ .title, .songs-list-item, .player, .song-form, .song-detail-info, .panel {
    color: #666;
    /*max-width: 590px;*/
    background-color: white;
@@ -318,3 +318,13 @@
    position: relative;
    top: 10px;
  }
+
+ .title small {
+   font-style: italic;
+   color: #888;
+   cursor: pointer;
+ }
+
+.title small:hover {
+  color: #666;
+}

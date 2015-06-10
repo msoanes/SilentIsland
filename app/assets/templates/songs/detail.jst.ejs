@@ -1,5 +1,12 @@
 <div class="title">
-  <h1><%= song.escape('title') %></h1>
+  <h1><%= song.escape('title') %> <small><%= song.escape('uploader') %></small></h1>
 </div>
-<p><%= song.escape('description') %></p>
-<audio src="<%= song.escape('url') %>" controls></audio>
+
+<div class="panel">
+  <% if (song.get('description')) { %>
+    <p><%= song.escape('description') %></p>
+  <% } else { %>
+    <p>this song has no description :( </p>
+  <% } %>
+  <audio src="<%= song.escape('url') %>" autoplay></audio>
+</div>
