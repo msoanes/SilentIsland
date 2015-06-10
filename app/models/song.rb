@@ -12,6 +12,7 @@ class Song < ActiveRecord::Base
   end
 
   def save_tags
+    return unless @tag_labels
     tags = Tag.where('label IN (?)', @tag_labels)
     @tag_labels -= tags.map { |tag| tag.label }
     @tag_labels.each { |label| tags << Tag.create(label: label) }
