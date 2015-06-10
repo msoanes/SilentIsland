@@ -9,13 +9,10 @@
   <label for="description">Description</label>
   <textarea name="song[description]" id="description"><%= song.escape('description') %></textarea>
 
-
-  <label for="url">URL</label>
-  <input type="text" name="song[url]" value="<%= song.escape('url') %>">
+  <button class="song-upload">Upload File</button>
 
   <label for="tag-labels">Tags</label>
   <input type="text" name="tag_string" value="">
 
-  <!-- <input type="submit" value="Save Song"> -->
   <button>Save Song</button>
 </form>

@@ -328,3 +328,22 @@
 .title small:hover {
   color: #666;
 }
+
+button {
+  border: none;
+  display: block;
+  clear: right;
+  margin: 10px 2px;
+  font-size: 12pt;
+  padding: 5px;
+  color: #444;
+  background-color: #bbb
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  background-color: #666;
+}

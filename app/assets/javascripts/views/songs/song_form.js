@@ -3,10 +3,12 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.title = options.title;
+    this.data = { song: {} };
   },
 
   events: {
-    'submit form': 'submit'
+    'click button.song-upload': 'uploadSong',
+    'submit form': 'submit',
   },
 
   render: function () {
@@ -17,13 +19,27 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
     return this;
   },
 
+  uploadSong: function (event) {
+    event.preventDefault();
+    var view = this;
+    filepicker.pick(function (blob) {
+      view.data.song.url = blob.url;
+    });
+  },
+
   submit: function (event) {
     var view = this;
     event.preventDefault();
-    var data = this.$('form').serializeJSON();
-    data.song.tag_labels = this.generateLabels(data.tag_string);
-    delete data.tag_string;
-    this.model.save(data, {
+    var data = view.$('form').serializeJSON();
+     _.extend(view.data.song, data.song);
+    // Process tag labels
+    console.log(data);
+    var tag_labels = view.generateLabels(data.tag_string);
+    console.log(tag_labels)
+    tag_labels && (view.data.song.tag_labels = tag_labels);
+    console.log(view.data.song);
+
+    view.model.save(view.data, {
       success: view.submitSuccess.bind(view)
     });
   },
@@ -37,6 +53,7 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
   },
 
   generateLabels: function (tagString) {
+    if (!tagString) { return; }
     var tagList = tagString.split(',');
     return _(tagList).map(function (tagLabel) {
       return tagLabel.trim();
