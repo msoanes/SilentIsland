@@ -23,7 +23,7 @@ module Api
     end
 
     def index
-      render json: Song.all
+      @songs = Song.all
     end
 
     def destroy

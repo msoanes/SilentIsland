@@ -1,1 +1,12 @@
-<p><%= song.escape('title') %></p>
+<div class="play-button"></div>
+<div class="song-info">
+  <h2 class="song-title"><%= song.escape('title') %></h2>
+  <p class="song-uploader"><%= song.escape('uploader') %></p>
+  <% if (song.get('tag_labels')) { %>
+    <p class="tags">
+      <% song.get('tag_labels').forEach(function (tag) { %>
+        <span class="tag"><%= tag %></span>
+      <% }) %>
+    </p>
+  <% } %>
+</div>
