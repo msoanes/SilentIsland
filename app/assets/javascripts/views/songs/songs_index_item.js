@@ -14,6 +14,9 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ song: this.model }));
+    if (this.model === SilentIsland.player.currentSong) {
+      this.$el.addClass('active');
+    }
     return this;
   },
 
@@ -25,5 +28,6 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
 
   playSong: function () {
     this.model.trigger('play', this.model);
+    this.$el.addClass('active');
   }
 });
