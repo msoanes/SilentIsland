@@ -2,7 +2,6 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.songs = options.songs;
-    debugger
   },
 
   routes: {
@@ -13,7 +12,6 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
     this.songs.fetch();
     var view = new SilentIsland.Views.SongsIndex({
       collection: this.songs,
-      title: 'Stream'
     });
     this._swapView(view);
   },

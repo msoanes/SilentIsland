@@ -2,13 +2,12 @@ SilentIsland.Views.SongsIndex = Backbone.CompositeView.extend({
   template: JST['songs/index'],
 
   initialize: function (options) {
-    this.title = options.title;
     this.addSongs();
     this.listenTo(this.collection, 'add', this.addSong);
   },
 
   render: function () {
-    this.$el.html(this.template({ title: this.title }));
+    this.$el.html(this.template());
     this.attachSubviews();
     return this;
   },
