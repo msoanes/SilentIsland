@@ -20,12 +20,10 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
   submit: function (event) {
     var view = this;
     event.preventDefault();
-
     var data = this.$('form').serializeJSON();
-    data.test = "whatever"
-    var modelTest = new SilentIsland.Models.Song(data);
-    debugger;
-    modelTest.save([], {
+    data.song.tag_labels = this.generateLabels(data.tag_string);
+    delete data.tag_string;
+    this.model.save(data, {
       success: view.submitSuccess.bind(view)
     });
   },
@@ -36,5 +34,12 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
       '#/songs/' + model.get('id'),
       { trigger: true }
     );
+  },
+
+  generateLabels: function (tagString) {
+    var tagList = tagString.split(',');
+    return _(tagList).map(function (tagLabel) {
+      return tagLabel.trim();
+    });
   }
-})
+});

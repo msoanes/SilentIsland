@@ -1,4 +1,5 @@
-<a href="#">Back</a>
-<h1><%= song.escape('title') %></h1>
+<div class="title">
+  <h1><%= song.escape('title') %></h1>
+</div>
 <p><%= song.escape('description') %></p>
 <audio src="<%= song.escape('url') %>" controls></audio>

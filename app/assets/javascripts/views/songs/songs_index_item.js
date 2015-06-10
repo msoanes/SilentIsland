@@ -1,6 +1,8 @@
 SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
   template: JST['songs/index_item'],
 
+  className: 'songs-list-item',
+
   events: { 'click .song-title': 'visitSong' },
 
   initialize: function (options) {
