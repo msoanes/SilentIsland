@@ -5,13 +5,13 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    '': 'songsIndex',
+    '': 'stream',
     'songs/:id': 'songDetail'
   },
 
-  songsIndex: function () {
+  stream: function () {
     this.songs.fetch();
-    var view = new SilentIsland.Views.SongsIndex({ collection: this.songs });
+    var view = new SilentIsland.Views.Stream({ collection: this.songs });
     this._swapView(view);
   },
 

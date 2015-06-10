@@ -26,7 +26,6 @@
 * Stream (composite view, contains SongsIndex subviews)
 * SongsIndex (composite view, contains SongsIndexItem subviews)
 * SongsIndexItem
-* SongShow
 
 ## Gems/Libraries
 * Filepicker.io
