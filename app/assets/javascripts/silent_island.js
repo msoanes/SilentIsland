@@ -11,7 +11,9 @@ window.SilentIsland = {
       $rootEl: $('#left-content')
     });
 
-    this.player = new SilentIsland.Views.AudioPlayer();
+    this.player = new SilentIsland.Views.AudioPlayer({
+      collection: this.router.songs
+    });
     $('#right-content').html(this.player.render().$el);
     Backbone.history.start();
   }
