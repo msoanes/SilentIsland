@@ -2,6 +2,11 @@
   filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
 </script>
 
+<form id="hidden-signout" action="<%= session_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+</form>
+
 <div id="nav"></div>
 
 <div id="content">
