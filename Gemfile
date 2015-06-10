@@ -33,6 +33,8 @@ gem 'ejs'
 
 gem 'filepicker-rails'
 
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
