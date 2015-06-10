@@ -30,14 +30,12 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
   submit: function (event) {
     var view = this;
     event.preventDefault();
+
     var data = view.$('form').serializeJSON();
      _.extend(view.data.song, data.song);
-    // Process tag labels
-    console.log(data);
+
     var tag_labels = view.generateLabels(data.tag_string);
-    console.log(tag_labels)
     tag_labels && (view.data.song.tag_labels = tag_labels);
-    console.log(view.data.song);
 
     view.model.save(view.data, {
       success: view.submitSuccess.bind(view)
