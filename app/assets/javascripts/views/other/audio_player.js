@@ -9,6 +9,8 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
 
   events: {
     'click .play-button-main': 'togglePlay',
+    'mousedown input.seeker': 'startSeek',
+    'mouseup input.seeker': 'endSeek',
     'change input.seeker': 'seek',
   },
 
@@ -43,9 +45,9 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
   },
 
   updateCurrentTime: function () {
-    var currentTime = Math.floor(this.$('audio')[0].currentTime);
+    var currentTime = this.$('audio')[0].currentTime;
     var renderedCurrentTime = this.renderTime(currentTime);
-    this.$('input.seeker').val(currentTime);
+    this.$('input.seeker:not(.seeking)').val(currentTime);
     this.$('.time-elapsed').text(renderedCurrentTime);
   },
 
@@ -63,5 +65,13 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     var $input = $(event.currentTarget);
     this.$('audio')[0].currentTime = $input.val();
     this.updateCurrentTime();
+  },
+
+  startSeek: function () {
+    this.$('input.seeker').addClass('seeking');
+  },
+
+  endSeek: function () {
+    this.$('input.seeker').removeClass('seeking');
   }
 });
