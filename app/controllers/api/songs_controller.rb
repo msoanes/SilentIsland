@@ -2,7 +2,7 @@ module Api
   class SongsController < ApiController
     def create
       @song = current_user.songs.new(song_params)
-      if song.update(song_params)
+      if @song.update(song_params)
         render json: @song
       else
         render json: @song.errors.full_messages, status: :unprocessable_entity
@@ -32,5 +32,10 @@ module Api
       @song.destroy
       render json: {}
     end
+
+    private
+      def song_params
+        params.require(:song).permit(:title, :url, :description)
+      end
   end
 end
