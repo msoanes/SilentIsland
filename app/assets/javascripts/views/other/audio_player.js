@@ -24,8 +24,12 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
   },
 
   switchSong: function (model) {
-    this.currentSong = model;
-    this.render();
+    if (model !== this.currentSong) {
+      this.currentSong = model;
+      this.render();
+    } else {
+      this.togglePlay();
+    }
   },
 
   togglePlay: function () {
