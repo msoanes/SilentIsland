@@ -1,14 +1,15 @@
 <div class="player">
   <div class="play-button play-button-main"></div>
   <div class="song-info song-info-main">
-    <h2 class="song-title">Hoppipolla</h2>
-    <p class="song-uploader">annarose</p>
+    <h2 class="song-title"><%= currentSong.get('title') %></h2>
+    <p class="song-uploader"><%= currentSong.get('uploader') %></p>
     <p class="time-info">
-      <span class="time-elapsed">1:23</span> /
-      <span class="time-total">4:56</span>
+      <span class="time-elapsed">0:00</span> /
+      <span class="time-total">0:00</span>
     </p>
   </div>
   <div class="song-controls">
-    <input type="range" name="name" min="0" max="296" value="0">
+    <input class="seeker" type="range" name="name" min="0" max="296" value="0">
   </div>
+  <audio autoplay></audio>
 </div>
