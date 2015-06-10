@@ -1,0 +1,21 @@
+<h1><%= title %></h1>
+
+<form>
+  <label for="title">Title</label> <br>
+  <input type="text" name="title" value="<%= song.escape('title') %>">
+
+  <br>
+
+  <label for="description">Description</label> <br>
+  <textarea name="description" rows="8" cols="40"><%= song.escape('description') %></textarea>
+
+  <br>
+
+  <label for="url">URL</label> <br>
+  <input type="text" name="url" value="<%= song.escape('url') %>">
+
+  <br>
+
+  <input type="submit" value="Save Song">
+
+</form>
