@@ -19,37 +19,43 @@ song_hashes = [
   {
     title: 'Silence Await',
     url: 'http://ccmixter.org/content/cdk/cdk_-_Silence_Await.mp3',
-    uploader_id: 1
+    uploader_id: 1,
+    tag_labels: ['piano', 'chill', 'sad', 'strings', 'electronic']
   },
 
   {
     title: 'The Long Goodbye',
     url: 'http://ccmixter.org/content/flatwound/flatwound_-_The_Long_Goodbye.mp3',
-    uploader_id: 2
+    uploader_id: 2,
+    tag_labels: ['strings', 'electronic', 'free']
   },
 
   {
     title: 'See You Later',
     url: 'http://ccmixter.org/content/Pitx/Pitx_-_See_You_Later.mp3',
-    uploader_id: 3
+    uploader_id: 3,
+    tag_labels: ['guitar', 'beats', 'free', 'analog']
   },
 
   {
     title: 'Ice and Chill',
     url: 'http://ccmixter.org/content/_ghost/_ghost_-_Ice_and_Chilli.mp3',
-    uploader_id: 4
+    uploader_id: 4,
+    tag_labels: ['strings', 'guitar', 'chill', 'beats', 'electronic']
   },
 
   {
     title: 'Test Drive',
     url: 'http://ccmixter.org/content/Zapac/Zapac_-_Test_Drive.mp3',
-    uploader_id: 5
+    uploader_id: 5,
+    tag_labels: ['guitar', 'beats', 'brass', 'analog']
   },
 
   {
     title: 'Parametaphoriquement',
     url: 'http://ccmixter.org/content/gmz/gmz_-_Parametaphoriquement.mp3',
-    uploader_id: 6
+    uploader_id: 6,
+    tag_labels: ['chill', 'beats', 'electronic']
   }
 ]
 
