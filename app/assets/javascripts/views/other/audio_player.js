@@ -11,6 +11,7 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     'mousedown input.seeker': 'startSeek',
     'mouseup input.seeker': 'endSeek',
     'input input.seeker': 'seek',
+    'input input.volume': 'setVolume'
   },
 
   render: function () {
@@ -85,5 +86,9 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
 
   endSeek: function () {
     this.$('input.seeker').removeClass('seeking');
+  },
+
+  setVolume: function (event) {
+    this.$audio[0].volume = Math.log($(event.currentTarget).val());
   }
 });

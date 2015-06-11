@@ -266,6 +266,20 @@
    overflow: hidden;
 }
 
+input.volume {
+  padding: 0;
+  margin: 0 5px;
+  height: 5px;
+  width: 60px;
+  float: right;
+  position: relative;
+  top: -40px;
+  -webkit-appearance: none;
+  background-color: #cccfcc;
+  transform: rotate(90);
+  border: none;
+}
+
  input.seeker::-webkit-slider-thumb {
    cursor: pointer;
    -webkit-appearance: none;
@@ -278,6 +292,17 @@
    padding: 0;
  }
 
+ input.volume::-webkit-slider-thumb {
+   cursor: pointer;
+   -webkit-appearance: none;
+   height: 15px;
+   width: 5px;
+   position: relative;
+   background-color: #006030;
+   border: 0;
+   margin: 0;
+   padding: 0;
+ }
  .active.songs-list-item .song-info .song-title {
    color: #f50;
  }
