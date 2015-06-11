@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
 
   has_many :songs, foreign_key: :uploader_id
 
+  has_many :subscribeds, class_name: 'Subscription', foreign_key: :follower_id
+
+  has_many :subscribed_users, through: :subscribeds, source: :subscribable, source_type: 'User'
+  has_many :subscribed_user_songs, through: :subscribed_users, source: :songs
+
+  has_many :subscribed_tags, through: :subscribeds, source: :subscribable, source_type: 'Tag'
+  has_many :subscribed_tag_songs, through: :subscribed_tags, source: :songs
+
   after_initialize :ensure_session_token
 
   attr_accessor :password
@@ -30,5 +38,9 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(password_digest).is_password?(password)
+  end
+
+  def stream
+    subscribed_user_songs | subscribed_tag_songs
   end
 end
