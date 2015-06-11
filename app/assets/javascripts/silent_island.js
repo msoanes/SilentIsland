@@ -3,6 +3,7 @@ window.SilentIsland = {
   Collections: {},
   Views: {},
   Routers: {},
+  Mixins: {},
   initialize: function() {
     var navbar = new SilentIsland.Views.Navbar();
     $('#nav').html(navbar.render().$el);
