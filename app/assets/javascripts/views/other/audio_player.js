@@ -25,6 +25,7 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
 
   switchSong: function (model) {
     if (model !== this.currentSong) {
+      this.currentSong.trigger('stop', this.currentSong);
       this.currentSong = model;
       this.render();
     } else {

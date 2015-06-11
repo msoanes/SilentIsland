@@ -136,7 +136,7 @@
  .title, .songs-list-item, .player, .song-form, .song-detail-info, .panel {
    color: #666;
    /*max-width: 590px;*/
-   background-color: white;
+   background: white;
    box-shadow: 1px 1px 4px #555;
    cursor: default;
  }
