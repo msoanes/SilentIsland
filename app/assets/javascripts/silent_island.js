@@ -9,6 +9,7 @@ window.SilentIsland = {
     this.router = new SilentIsland.Routers.Router({
       tags: new SilentIsland.Collections.Tags(),
       songs: new SilentIsland.Collections.Songs(),
+      users: new SilentIsland.Collections.Users(),
       $rootEl: $('#left-content')
     });
 
