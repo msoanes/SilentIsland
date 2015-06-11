@@ -2,9 +2,7 @@ module Api
   class TagsController < ApplicationController
     def show
       @tag = Tag.find(params[:id])
-      if @tag
-        render json: @tag
-      else
+      if !@tag
         render json: ['404 tag not found'], status: :not_found
       end
     end
