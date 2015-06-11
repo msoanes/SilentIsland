@@ -32,6 +32,11 @@ module Api
       render json: {}
     end
 
+    def stream
+      @songs = current_user.stream
+      render :index
+    end
+
     private
       def song_params
         params.require(:song).permit(:title, :url, :description, tag_labels: [])
