@@ -5,7 +5,8 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
 
   events: {
     'click .song-title': 'visitSong',
-    'click .play-button': 'playSong'
+    'click .play-button': 'playSong',
+    'click .tag': 'visitTag'
   },
 
   initialize: function (options) {
@@ -34,5 +35,10 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
 
   stopSong: function () {
     this.$el.removeClass('active');
+  },
+
+  visitTag: function (event) {
+    var tagID = $(event.currentTarget).data('id');
+    Backbone.history.navigate('/tags/' + tagID, { trigger: true });
   }
 });
