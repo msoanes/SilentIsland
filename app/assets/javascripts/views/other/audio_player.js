@@ -30,11 +30,13 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
 
   switchSong: function (newSong) {
     if (newSong !== this.currentSong) {
+      // This is bad: go back to regular template rendering now you know what the problem is
       this.currentSong.trigger('stop', this.currentSong);
       this.currentSong = newSong;
       this.$audio.attr('src', this.currentSong.get('url'));
       this.$('.song-title').text(this.currentSong.escape('title'));
-      this.$('.song-uploader').text(this.currentSong.escape('uploader'));
+      this.$('.song-uploader').text(this.currentSong.get('uploader').username);
+      this.$('.song-uploader').data('id', this.currentSong.get('uploader').id);
     } else {
       this.togglePlay();
     }

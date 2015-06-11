@@ -4,9 +4,10 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
   className: 'songs-list-item',
 
   events: {
-    'click .song-title': 'visitSong',
     'click .play-button': 'playSong',
-    'click .tag': 'visitTag'
+    'click .song-title': 'visitSong',
+    'click .tag': 'visitTag',
+    'click .song-uploader': 'visitUploader'
   },
 
   initialize: function (options) {
@@ -15,6 +16,7 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
   },
 
   render: function () {
+    console.log(this.model);
     this.$el.html(this.template({ song: this.model }));
     if (this.model === SilentIsland.player.currentSong) {
       this.$el.addClass('active');
@@ -40,5 +42,10 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
   visitTag: function (event) {
     var tagID = $(event.currentTarget).data('id');
     Backbone.history.navigate('/tags/' + tagID, { trigger: true });
-  }
+  },
+
+  visitUploader: function (event) {
+    var userID = $(event.currentTarget).data('id');
+    Backbone.history.navigate('/users/' + userID, { trigger: true });
+  },
 });

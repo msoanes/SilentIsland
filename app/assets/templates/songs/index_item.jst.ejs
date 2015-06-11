@@ -1,12 +1,17 @@
 <div class="play-button"></div>
 <div class="song-info">
   <h2 class="song-title"><%= song.escape('title') %></h2>
-  <p class="song-uploader"><%= song.escape('uploader') %></p>
+
+  <p class="song-uploader" data-id="<%= song.get('uploader').id %>">
+    <%= song.get('uploader').username %>
+  </p>
+
   <% if (song.get('tags')) { %>
     <p class="tags">
       <% song.get('tags').forEach(function (tag) { %>
         <span class="tag" data-id="<%= tag.id %>"><%= tag.label %></span>
       <% }) %>
     </p>
+
   <% } %>
 </div>
