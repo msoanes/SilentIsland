@@ -4,7 +4,6 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
   initialize: function () {
     this.currentSong = new SilentIsland.Models.Song();
     this.listenTo(this.collection, 'play', this.switchSong);
-    setInterval(this.updateCurrentTime.bind(this), 500);
   },
 
   events: {
@@ -18,23 +17,30 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     this.$el.html(this.template({
       currentSong: this.currentSong
     }));
-    this.$('audio').on('loadedmetadata', this.setInfo.bind(this))
-    this.$('audio').attr('src', this.currentSong.get('url'));
+    this.$audio = this.$('audio');
+    this.$audio.attr('src', this.currentSong.get('url'));
+    _.bindAll(this, 'setInfo', 'updateCurrentTime');
+
+    this.$audio.on('canplay', this.setInfo);
+    this.$audio.on('timeupdate', this.updateCurrentTime);
+
     return this;
   },
 
-  switchSong: function (model) {
-    if (model !== this.currentSong) {
+  switchSong: function (newSong) {
+    if (newSong !== this.currentSong) {
       this.currentSong.trigger('stop', this.currentSong);
-      this.currentSong = model;
-      this.render();
+      this.currentSong = newSong;
+      this.$audio.attr('src', this.currentSong.get('url'));
+      this.$('.song-title').text(this.currentSong.escape('title'));
+      this.$('.song-uploader').text(this.currentSong.escape('uploader'));
     } else {
       this.togglePlay();
     }
   },
 
   togglePlay: function () {
-    var audio = this.$('audio')[0];
+    var audio = this.$audio[0];
     if (audio.paused) {
       audio.play();
     } else {
@@ -43,14 +49,15 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
   },
 
   setInfo: function () {
-    var duration = Math.floor(this.$('audio')[0].duration);
+    var duration = Math.floor(this.$audio[0].duration);
     var renderedDuration = this.renderTime(duration);
     this.$('input.seeker').attr('max', duration);
     this.$('.time-total').text(renderedDuration);
+    this.$audio[0].play();
   },
 
   updateCurrentTime: function () {
-    var currentTime = this.$('audio')[0].currentTime;
+    var currentTime = this.$audio[0].currentTime;
     var renderedCurrentTime = this.renderTime(currentTime);
     this.$('input.seeker:not(.seeking)').val(currentTime);
     this.$('.time-elapsed').text(renderedCurrentTime);
@@ -63,12 +70,12 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
       seconds = '0' + seconds;
     }
     var minutes = Math.floor(totalSeconds / 60);
-    return '' + minutes + ':' + seconds
+    return '' + minutes + ':' + seconds;
   },
 
   seek: function (event) {
     var $input = $(event.currentTarget);
-    this.$('audio')[0].currentTime = $input.val();
+    this.$audio[0].currentTime = $input.val();
     this.updateCurrentTime();
   },
 
