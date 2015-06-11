@@ -3,12 +3,14 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.songs = options.songs;
     this.tags = options.tags;
+    this.users = options.users;
   },
 
   routes: {
     '': 'stream',
     'songs/new': 'songNew',
     'tags/:id': 'tagDetail',
+    'users/:id': 'userDetail',
     'songs/:id': 'songDetail'
   },
 
@@ -27,6 +29,12 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   songDetail: function (id) {
     var song = this.songs.getOrFetch(id);
     var view = new SilentIsland.Views.SongDetail({ model: song });
+    this._swapView(view);
+  },
+
+  userDetail: function (id) {
+    var user = this.users.getOrFetch(id);
+    var view = new SilentIsland.Views.UserDetail({ model: user });
     this._swapView(view);
   },
 
