@@ -2,17 +2,25 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.songs = options.songs;
+    this.tags = options.tags;
   },
 
   routes: {
     '': 'stream',
     'songs/new': 'songNew',
+    'tags/:id': 'tagDetail',
     'songs/:id': 'songDetail'
   },
 
   stream: function () {
     this.songs.fetch();
     var view = new SilentIsland.Views.Stream({ collection: this.songs });
+    this._swapView(view);
+  },
+
+  tagDetail: function (id) {
+    var tag = this.tags.getOrFetch(id);
+    var view = new SilentIsland.Views.TagDetail({ model: tag });
     this._swapView(view);
   },
 
