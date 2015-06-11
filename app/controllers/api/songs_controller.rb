@@ -19,11 +19,11 @@ module Api
     end
 
     def show
-      @song = Song.find(params[:id])
+      @song = Song.includes(:tags, :uploader).find(params[:id])
     end
 
     def index
-      @songs = Song.all
+      @songs = Song.includes(:tags, :uploader)
     end
 
     def destroy
