@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :songs, except: [:new, :edit]
     resources :tags, only: [:show, :index]
+    resources :users, only: [:show, :index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
