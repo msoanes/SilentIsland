@@ -413,8 +413,18 @@ button:active {
   color: white;
   width: 60px;
   text-align: center;
+  transition: background-color 0.5s;
 }
 
 .toggle-subscription:hover {
   background-color: #bbb;
+}
+
+.toggle-subscription:active {
+  background-color: #eee;
+  transition: none;
+}
+
+.toggle-subscription.subscribed {
+  background-color: #f50;
 }

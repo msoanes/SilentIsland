@@ -23,6 +23,11 @@ SilentIsland.Views.SubscribeButton = Backbone.View.extend({
       subscription: this.model.subscription()
     });
 
+    if (this.model.subscription().isNew()) {
+      this.$el.removeClass('subscribed');
+    } else {
+      this.$el.addClass('subscribed');
+    }
     this.$el.html(renderedContent);
     return this;
   }
