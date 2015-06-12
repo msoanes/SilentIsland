@@ -4,7 +4,8 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
   className: 'play-queue',
 
   events: {
-    'sortdeactivate .play-queue-list': 'updateOrder'
+    'sortdeactivate .play-queue-list': 'updateOrder',
+    'click .next': 'playNext'
   },
 
   initialize: function (options) {

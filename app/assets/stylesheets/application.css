@@ -183,7 +183,7 @@
    width: 80px;
    background-color: #358f7f;
    position: relative;
-   transition: all 0.2s;
+   transition: all 0.3s;
  }
 
  .play-button:after {
@@ -467,7 +467,27 @@ button:active {
 
 .queue {
   position: absolute;
+  height: 20px;
   top: 20px;
   right: 0;
   font-size: 36px;
+  font-weight: bold;
+  transition: color .15s;
+  cursor: pointer;
+}
+
+.queue:hover {
+  color: #f60;
+}
+
+.queue span {
+  height: 20px;
+}
+
+.play-queue-item {
+  transition: color 0.5s;
+}
+
+.active.play-queue-item {
+  color: #f60;
 }
