@@ -491,3 +491,31 @@ button:active {
 .active.play-queue-item {
   color: #f60;
 }
+
+.play-button.small {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 60px;
+  margin-right: 5px;
+}
+
+.play-button.small:after {
+  content: '';
+  border-top-width: 20px;
+  border-bottom-width: 20px;
+  border-left-width: 32px;
+  position: absolute;
+  top:10px;
+  left: 15px;
+}
+
+.active .play-button.small {
+  background-color: #f60;
+}
+
+.queue-item-info {
+  position: relative;
+  left: 60px;
+}

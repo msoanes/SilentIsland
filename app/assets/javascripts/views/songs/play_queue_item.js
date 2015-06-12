@@ -3,6 +3,10 @@ SilentIsland.Views.PlayQueueItem = Backbone.View.extend({
 
   className: 'song-info play-queue-item panel',
 
+  events: {
+    'click .play-button': 'playSong'
+  },
+
   attributes: function () {
     return { 'data-id': this.model.id }
   },
@@ -29,4 +33,7 @@ SilentIsland.Views.PlayQueueItem = Backbone.View.extend({
     this.$el.removeClass('active');
   },
 
+  playSong: function () {
+    this.model.trigger('play', this.model);
+  }
 })
