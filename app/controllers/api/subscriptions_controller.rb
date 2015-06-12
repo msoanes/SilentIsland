@@ -17,6 +17,7 @@ module Api
 
     private
       def current_subscription
+        @current_subscription || Subscription.find(params[:id])
       end
 
       def subscription_params
