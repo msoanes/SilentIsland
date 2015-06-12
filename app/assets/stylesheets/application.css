@@ -519,3 +519,15 @@ button:active {
   position: relative;
   left: 60px;
 }
+
+.play-button-main {
+  background-color: #455;
+}
+
+.play-button-main:hover {
+  background-color: #344;
+}
+
+.play-button-main:active {
+  background-color: #667;
+}
