@@ -14,6 +14,7 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
     this.mainCollection = options.mainCollection;
     this.addSongs();
     this.listenTo(this.collection, 'add', this.addSong);
+    this.listenTo(this.collection, 'unqueue', this.unqueueSong);
     this.listenTo(this.mainCollection, 'ended', this.playNext);
     this.listenTo(this.mainCollection, 'queue', this.queueSong);
   },
@@ -77,5 +78,10 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
 
   queueSong: function (song) {
     this.collection.add(song);
+  },
+
+  unqueueSong: function (song) {
+    this.collection.remove(song);
+    this.removeModelSubview('.play-queue-list', song);
   }
 });
