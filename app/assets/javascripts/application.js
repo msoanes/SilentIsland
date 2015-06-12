@@ -18,6 +18,7 @@
 //= require backbone
 //= require composite_view
 //= require silent_island
+//= require_tree ./utils
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
