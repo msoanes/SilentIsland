@@ -445,7 +445,7 @@ button:active {
 
 .auth-form input {
   box-sizing: margin-box;
-  width: 50%%;
+  width: 50%;
   margin: 5px auto;
   display: block;
 }
