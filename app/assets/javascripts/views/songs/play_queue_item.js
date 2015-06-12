@@ -3,6 +3,10 @@ SilentIsland.Views.PlayQueueItem = Backbone.View.extend({
 
   className: 'song-info play-queue-item panel',
 
+  attributes: function () {
+    return { 'data-id': this.model.id }
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },

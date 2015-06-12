@@ -1,9 +1,15 @@
 SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
   template: JST['other/play_queue'],
 
-  className: 'panel',
+  className: 'play-queue',
+
+  events: {
+    'sortdeactivate .play-queue-list': 'updateOrder'
+  },
 
   initialize: function (options) {
+    this.setCollectionOrder();
+    this.setCollectionComparator();
     this.mainCollection = options.mainCollection;
     this.addSongs();
     this.listenTo(this.collection, 'add', this.addSong);
@@ -24,20 +30,47 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
   },
 
   addSong: function (song) {
+    song.ord = this.collection.length - 1;
     var playQueueItem = new SilentIsland.Views.PlayQueueItem({
       model: song
     });
     this.addSubview('.play-queue-list', playQueueItem);
+    this.$('.play-queue-list').sortable({
+      start: function (e, ui) {
+        ui.placeholder.height('50px');
+      },
+      axis: 'y'
+    });
   },
 
   playNext: function (prevSong) {
+    var nextIndex = 0;
     if (this.collection.contains(prevSong)) {
       var nextIndex = this.collection.indexOf(prevSong) + 1;
-    } else {
-      var nextIndex = 0;
     }
     if (this.collection.length - 1 < nextIndex) { return; }
     var nextSong = this.collection.at(nextIndex);
     nextSong.trigger('play', nextSong);
+  },
+
+  setCollectionOrder: function () {
+    this.collection.each(function (song, idx) {
+      song.ord = idx;
+    });
+  },
+
+  setCollectionComparator: function () {
+    this.collection.comparator = function (song) {
+      return song.ord;
+    };
+  },
+
+  updateOrder: function () {
+    console.log('triggered');
+    var playQueue = this;
+    playQueue.$('.play-queue-item').each(function (idx, el) {
+      playQueue.collection.get($(el).data('id')).ord = idx;
+    });
+    playQueue.collection.sort();
   }
 });
