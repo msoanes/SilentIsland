@@ -7,6 +7,9 @@ SilentIsland.Views.Stream = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.songs-index', indexView);
+    this.collection.fetch({
+      success: this.checkCollectionEmptiness.bind(this)
+    });
   },
 
   render: function () {
@@ -14,4 +17,13 @@ SilentIsland.Views.Stream = Backbone.CompositeView.extend({
     this.attachSubviews();
     return this;
   },
+
+  checkCollectionEmptiness: function () {
+    // if (this.collection.isEmpty()) {
+    //   var oldIndexView = this.subviews('.songs-index')[0]
+    //   this.removeSubviews('.songs-index', subview);
+    //   var tagBrowseView = new SilentIsland.Views.TagsIndex();
+    //
+    // }
+  }
 });

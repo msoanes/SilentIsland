@@ -16,7 +16,6 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   },
 
   stream: function () {
-    this.streamCollection.fetch();
     var view = new SilentIsland.Views.Stream({ collection: this.streamCollection });
     this._swapView(view);
   },
