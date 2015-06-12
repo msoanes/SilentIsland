@@ -449,3 +449,18 @@ button:active {
   margin: 5px auto;
   display: block;
 }
+
+.play-queue {
+  position: relative;
+}
+
+.song-info.play-queue-item {
+  display: block;
+  position: relative;
+  left: auto;
+  top: -5px;
+  padding: 5px;
+  margin-bottom: 0;
+  border-top: 1px solid #eee;
+  height: 50px;
+}
