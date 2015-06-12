@@ -5,8 +5,10 @@ SilentIsland.Views.SubscribeButton = Backbone.View.extend({
     this.listenTo(this.model.subscription(), 'change', this.render);
   },
 
+  className: 'toggle-subscription',
+
   events: {
-    'click .toggle-subscription': 'toggleSubscription'
+    'click': 'toggleSubscription'
   },
 
 
