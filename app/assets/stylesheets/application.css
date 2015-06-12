@@ -464,3 +464,10 @@ button:active {
   border-top: 1px solid #eee;
   height: 50px;
 }
+
+.queue {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  font-size: 36px;
+}

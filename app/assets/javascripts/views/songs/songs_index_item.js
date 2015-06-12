@@ -7,7 +7,8 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
     'click .play-button': 'playSong',
     'click .song-title': 'visitSong',
     'click .tag': 'visitTag',
-    'click .song-uploader': 'visitUploader'
+    'click .song-uploader': 'visitUploader',
+    'click .queue': 'queueSong'
   },
 
   initialize: function (options) {
@@ -51,4 +52,8 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
     var userID = $(event.currentTarget).data('id');
     Backbone.history.navigate('/users/' + userID, { trigger: true });
   },
+
+  queueSong: function () {
+    this.model.trigger('queue', this.model);
+  }
 });

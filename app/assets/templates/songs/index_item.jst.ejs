@@ -6,6 +6,8 @@
     <%= song.get('uploader').username %>
   </p>
 
+  <div class="queue">+</div>
+
   <% if (song.get('tags')) { %>
     <p class="tags">
       <% song.get('tags').forEach(function (tag) { %>

@@ -14,6 +14,7 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
     this.addSongs();
     this.listenTo(this.collection, 'add', this.addSong);
     this.listenTo(this.mainCollection, 'ended', this.playNext);
+    this.listenTo(this.mainCollection, 'queue', this.queueSong);
   },
 
   render: function () {
@@ -66,11 +67,14 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
   },
 
   updateOrder: function () {
-    console.log('triggered');
     var playQueue = this;
     playQueue.$('.play-queue-item').each(function (idx, el) {
       playQueue.collection.get($(el).data('id')).ord = idx;
     });
     playQueue.collection.sort();
+  },
+
+  queueSong: function (song) {
+    this.collection.add(song);
   }
 });
