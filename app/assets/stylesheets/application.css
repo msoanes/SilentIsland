@@ -42,6 +42,7 @@
  div.link {
    cursor: pointer;
    padding: 0 10px;
+   transition: background-color 0.2s;
  }
 
  div.link > a:link {
@@ -53,6 +54,10 @@
 
  .nav-bar div.link:hover > a:link {
    color: #fff;
+ }
+
+ .nav-bar div.link:not(.primary):hover {
+   background-color: #445554;
  }
 
  div:link:active {
@@ -427,4 +432,20 @@ button:active {
 
 .toggle-subscription.subscribed {
   background-color: #f50;
+}
+
+.auth-form {
+  text-align: center;
+  background-color: #fff;
+  width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  top: 50px;
+}
+
+.auth-form input {
+  box-sizing: margin-box;
+  width: 50%%;
+  margin: 5px auto;
+  display: block;
 }
