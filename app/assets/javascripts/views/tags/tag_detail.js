@@ -5,10 +5,15 @@ SilentIsland.Views.TagDetail = Backbone.CompositeView.extend({
     var indexView = new SilentIsland.Views.SongsIndex({
       collection: this.model.songs()
     });
+    var subscribeButton = new SilentIsland.Views.SubscribeButton({
+      model: this.model
+    })
+    this.addSubview('.songs-index', indexView);
+    this.addSubview('.subscribe-button', subscribeButton);
+
+
 
     this.listenTo(this.model, 'sync', this.render);
-
-    this.addSubview('.songs-index', indexView);
   },
 
   render: function () {
