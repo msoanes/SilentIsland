@@ -20,10 +20,11 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     }));
     this.$audio = this.$('audio');
     this.$audio.attr('src', this.currentSong.get('url'));
-    _.bindAll(this, 'setInfo', 'updateCurrentTime');
+    _.bindAll(this, 'setInfo', 'updateCurrentTime', 'endPlay');
 
     this.$audio.on('canplay', this.setInfo);
     this.$audio.on('timeupdate', this.updateCurrentTime);
+    this.$audio.on('ended', this.endPlay);
 
     return this;
   },
@@ -92,5 +93,9 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
 
   setVolume: function (event) {
     this.$audio[0].volume = Math.log($(event.currentTarget).val());
+  },
+
+  endPlay: function () {
+    this.currentSong.trigger('ended', this.currentSong);
   }
 });
