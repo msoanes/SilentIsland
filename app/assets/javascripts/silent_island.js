@@ -17,7 +17,15 @@ window.SilentIsland = {
     this.player = new SilentIsland.Views.AudioPlayer({
       collection: this.router.songs
     });
-    $('#right-content').html(this.player.render().$el);
+
+    this.playQueue = new SilentIsland.Views.PlayQueue({
+      collection: new SilentIsland.Collections.Songs(),
+      mainCollection: this.router.songs
+    });
+
+    $('#right-content').append(this.player.render().$el);
+    $('#right-content').append(this.playQueue.render().$el);
+
     Backbone.history.start();
   }
 };
