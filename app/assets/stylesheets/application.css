@@ -332,7 +332,7 @@ input.volume {
    float: right;
  }
 
- .tag {
+ .tag, .tagit-choice {
    background-color: #ccc;
    border-radius: 3px;
    padding: 2px 5px 0px 5px;
@@ -530,4 +530,15 @@ button:active {
 
 .play-button-main:active {
   background-color: #667;
+}
+
+.tagit {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tagit-choice {
+  display: block;
+  float: left;
+  margin: 5px 2px;
 }
