@@ -11,8 +11,14 @@ SilentIsland.Views.Navbar = Backbone.CompositeView.extend({
     'click .sign-out-link': 'signOut'
   },
 
+  initialize: function () {
+    var searchBar = new SilentIsland.Views.SearchBar();
+    this.addSubview('.search-bar', searchBar);
+  },
+
   render: function () {
     this.$el.html(this.template());
+    this.attachSubviews();
     return this;
   },
 
