@@ -39,6 +39,9 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
     var playQueueItem = new SilentIsland.Views.PlayQueueItem({
       model: song
     });
+    var ended = SilentIsland.player.$audio[0].ended;
+    console.log(ended);
+    var empty = !SilentIsland.player.currentSong.get('url');
     this.addSubview('.play-queue-list', playQueueItem);
     this.$('.play-queue-list').sortable({
       start: function (e, ui) {
@@ -46,6 +49,9 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
       },
       axis: 'y'
     });
+    if (ended || empty) {
+      song.trigger('play', song);
+    }
   },
 
   playNext: function () {
