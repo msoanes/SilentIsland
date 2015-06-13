@@ -300,7 +300,7 @@ input.volume {
  input.seeker::-webkit-slider-thumb {
    cursor: pointer;
    -webkit-appearance: none;
-   height: 15px;
+   height: 16px;
    width: 10px;
    position: relative;
    background-color: #006030;
@@ -541,4 +541,37 @@ button:active {
   display: block;
   float: left;
   margin: 5px 2px;
+}
+
+.queue-controls {
+  margin-top: 1px;
+  position: relative;
+  width: auto;
+  text-align: center;
+}
+
+.queue-controls > span {
+  font-size: 32pt;
+  padding: 0 10px;
+  border: 0;
+  transition: color 0.4s;
+  cursor: pointer;
+}
+
+.queue-controls > span:hover {
+  color: #333;
+}
+
+.queue-controls > span.active {
+  color: #f60;
+}
+
+.queue-controls > span:active {
+  color: #f50;
+  transition: none;
+}
+
+.play-queue-title h2 {
+  margin: 10px 0px 0px 10px;
+  padding: ;
 }
