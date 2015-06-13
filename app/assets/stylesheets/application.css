@@ -193,6 +193,10 @@
    transition: color 0.2s;
  }
 
+ .play-button .play-symbol.glyphicon-pause {
+   margin-left: 10px;
+ }
+
  .play-button:hover {
    background-color: #12835f;
    cursor: pointer;
@@ -499,7 +503,7 @@ button:active {
   color: #f60;
 }
 
-.active.play-queue-item .glyphicon-delete {
+.active.play-queue-item .glyphicon-remove {
   color: #666;
 }
 
@@ -535,7 +539,7 @@ button:active {
 }
 
 .play-button-main:active {
-  background-color: #667;
+  background-color: #233;
 }
 
 .tagit {
@@ -579,4 +583,5 @@ button:active {
 
 .play-queue-title h2 {
   margin: 10px 0px 0px 10px;
+  padding: 10px;
 }

@@ -47,8 +47,10 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     var audio = this.$audio[0];
     if (audio.paused) {
       audio.play();
+      this.setPauseGlyphicon();
     } else {
       audio.pause();
+      this.setPlayGlyphicon();
     }
   },
 
@@ -57,7 +59,7 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     var renderedDuration = this.renderTime(duration);
     this.$('input.seeker').attr('max', duration);
     this.$('.time-total').text(renderedDuration);
-    this.$audio[0].play();
+    this.togglePlay();
   },
 
   updateCurrentTime: function () {
@@ -81,6 +83,7 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     var $input = $(event.currentTarget);
     this.$audio[0].currentTime = $input.val();
     this.updateCurrentTime();
+    this.togglePlay();
   },
 
   startSeek: function () {
@@ -97,5 +100,15 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
 
   endPlay: function () {
     this.currentSong.trigger('ended', this.currentSong);
+  },
+
+  setPauseGlyphicon: function () {
+    this.$('.play-symbol').removeClass('glyphicon-play');
+    this.$('.play-symbol').addClass('glyphicon-pause');
+  },
+
+  setPlayGlyphicon: function () {
+    this.$('.play-symbol').removeClass('glyphicon-pause');
+    this.$('.play-symbol').addClass('glyphicon-play');
   }
 });
