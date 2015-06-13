@@ -504,6 +504,10 @@ button:active {
   color: #f60;
 }
 
+.active.play-queue-item .glyphicon {
+  color: #666;
+}
+
 .play-button.small {
   position: absolute;
   left: 0;
