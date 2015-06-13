@@ -13,7 +13,6 @@ SilentIsland.Views.SubscribeButton = Backbone.View.extend({
 
 
   toggleSubscription: function (event) {
-    console.log('Toggling')
     event.preventDefault();
     this.model.toggleSubscription();
   },

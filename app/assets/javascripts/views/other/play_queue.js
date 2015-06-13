@@ -40,7 +40,6 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
       model: song
     });
     var ended = SilentIsland.player.$audio[0].ended;
-    console.log(ended);
     var empty = !SilentIsland.player.currentSong.get('url');
     this.addSubview('.play-queue-list', playQueueItem);
     this.$('.play-queue-list').sortable({

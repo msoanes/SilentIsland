@@ -7,7 +7,6 @@ SilentIsland.Mixins.Subscribable = {
   },
 
   createSubscription: function () {
-    console.log('Should be creating');
     this.subscription().save();
   },
 
@@ -20,12 +19,9 @@ SilentIsland.Mixins.Subscribable = {
   },
 
   toggleSubscription: function () {
-    console.log(this.subscription().isNew())
     if (this.subscription().isNew()) {
-      console.log(this.subscription());
       this.createSubscription();
     } else {
-      console.log('Got there');
       this.destroySubscription();
     }
   },
