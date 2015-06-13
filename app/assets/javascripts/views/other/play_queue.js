@@ -5,7 +5,9 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
 
   events: {
     'sortdeactivate .play-queue-list': 'updateOrder',
-    'click .next': 'playNext'
+    'click .next': 'playNext',
+    'click .prev': 'playPrev',
+    'click .loop': 'toggleLoop'
   },
 
   initialize: function (options) {
@@ -46,14 +48,36 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
     });
   },
 
-  playNext: function (prevSong) {
+  playNext: function () {
     var nextIndex = 0;
-    if (this.collection.contains(prevSong)) {
-      var nextIndex = this.collection.indexOf(prevSong) + 1;
+    var currSong = SilentIsland.player.currentSong;
+    if (this.collection.contains(currSong)) {
+      nextIndex = (this.collection.indexOf(currSong) + 1);
     }
-    if (this.collection.length - 1 < nextIndex) { return; }
+    if ((this.collection.length - 1) < nextIndex && !this.looping) { return; }
+    nextIndex = nextIndex % this.collection.length;
     var nextSong = this.collection.at(nextIndex);
     nextSong.trigger('play', nextSong);
+  },
+
+  playPrev: function () {
+    var prevIndex = 0;
+    var currSong = SilentIsland.player.currentSong;
+    if (this.collection.contains(currSong)) {
+      prevIndex = this.collection.indexOf(currSong) - 1;
+    }
+    if (prevIndex < 0 && !this.looping) { return; }
+    var prevSong = this.collection.at(prevIndex);
+    prevSong.trigger('play', prevSong);
+  },
+
+  toggleLoop: function (event) {
+    $target = $(event.currentTarget);
+    this.looping = !this.looping;
+    $target.removeClass('active');
+    if (this.looping) {
+      $target.addClass('active');
+    }
   },
 
   setCollectionOrder: function () {
