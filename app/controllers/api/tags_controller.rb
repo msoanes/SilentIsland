@@ -8,7 +8,7 @@ module Api
     end
 
     def index
-      @tags = Tag.all
+      @tags = Tag.where("label LIKE ?", "%#{params[:q]}%")
       render json: @tags
     end
   end
