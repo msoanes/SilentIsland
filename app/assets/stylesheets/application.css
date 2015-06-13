@@ -465,6 +465,18 @@ button:active {
   height: 50px;
 }
 
+.song-info.play-queue-item .unqueue-song {
+  position: absolute;
+  right: 0;
+  font-size: 16pt;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.song-info.play-queue-item .unqueue-song:hover {
+  color: #f40;
+}
+
 .queue {
   position: absolute;
   height: 20px;
@@ -518,6 +530,7 @@ button:active {
 .queue-item-info {
   position: relative;
   left: 60px;
+  width: 220px;
 }
 
 .play-button-main {
@@ -573,5 +586,4 @@ button:active {
 
 .play-queue-title h2 {
   margin: 10px 0px 0px 10px;
-  padding: ;
 }
