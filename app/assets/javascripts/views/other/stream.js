@@ -2,14 +2,8 @@ SilentIsland.Views.Stream = Backbone.CompositeView.extend({
   template: JST['other/stream'],
 
   initialize: function (options) {
-    var indexView = new SilentIsland.Views.SongsIndex({
-      collection: this.collection
-    });
-
-    this.addSubview('.songs-index', indexView);
-    this.collection.fetch({
-      success: this.checkCollectionEmptiness.bind(this)
-    });
+    this.collection.fetch({ reset: true })
+    this.listenTo(this.collection, 'reset', this.checkCollectionEmptiness)
   },
 
   render: function () {
@@ -19,11 +13,16 @@ SilentIsland.Views.Stream = Backbone.CompositeView.extend({
   },
 
   checkCollectionEmptiness: function () {
-    // if (this.collection.isEmpty()) {
-    //   var oldIndexView = this.subviews('.songs-index')[0]
-    //   this.removeSubviews('.songs-index', subview);
-    //   var tagBrowseView = new SilentIsland.Views.TagsIndex();
-    //
-    // }
+    setTimeout(function () {
+      console.log(this.collection);
+      if (this.collection.isEmpty()) {
+        this.collection = SilentIsland.router.songs;
+      }
+      var indexView = new SilentIsland.Views.SongsIndex({
+        collection: this.collection
+      });
+      this.collection.fetch();
+      this.addSubview('.songs-index', indexView);
+    }.bind(this), 100);
   }
 });
