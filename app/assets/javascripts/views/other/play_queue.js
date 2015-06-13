@@ -62,6 +62,7 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
     if ((this.collection.length - 1) < nextIndex && !this.looping) { return; }
     nextIndex = nextIndex % this.collection.length;
     var nextSong = this.collection.at(nextIndex);
+    if (nextSong === currSong) { return; }
     nextSong.trigger('play', nextSong);
   },
 
@@ -73,6 +74,7 @@ SilentIsland.Views.PlayQueue = Backbone.CompositeView.extend({
     }
     if (prevIndex < 0 && !this.looping) { return; }
     var prevSong = this.collection.at(prevIndex);
+    if (prevSong === currSong) { return; }
     prevSong.trigger('play', prevSong);
   },
 
