@@ -186,16 +186,11 @@
    transition: all 0.3s;
  }
 
- .play-button:after {
-   content: '';
-   border-top: 25px solid transparent;
-   border-bottom: 25px solid transparent;
-   border-left: 40px solid white;
-   position: absolute;
-   top:15px;
-   left: 20px;
-   transition: border-left-color 0.2s;
-   shadow: 1px 1px 1px;
+ .play-button .play-symbol {
+   color: white;
+   font-size: 48pt;
+   margin-left: 8px;
+   transition: color 0.2s;
  }
 
  .play-button:hover {
@@ -203,8 +198,8 @@
    cursor: pointer;
  }
 
- .play-button:hover:after {
-   border-left-color: #CCC;
+ .play-button:hover .play-symbol {
+   color: #CCC;
  }
 
  .play-button:active {
@@ -212,9 +207,9 @@
    background-color: #12735f;
  }
 
- .play-button:active:after {
+ .play-button:active .play-symbol {
    transition: none;
-   border-left-color: #444;
+   color: #444;
  }
 
  .song-info {
@@ -504,7 +499,7 @@ button:active {
   color: #f60;
 }
 
-.active.play-queue-item .glyphicon {
+.active.play-queue-item .glyphicon-delete {
   color: #666;
 }
 
@@ -517,14 +512,8 @@ button:active {
   margin-right: 5px;
 }
 
-.play-button.small:after {
-  content: '';
-  border-top-width: 20px;
-  border-bottom-width: 20px;
-  border-left-width: 32px;
-  position: absolute;
-  top:10px;
-  left: 15px;
+.play-button.small .play-symbol {
+  font-size: 36pt;
 }
 
 .active .play-button.small {
