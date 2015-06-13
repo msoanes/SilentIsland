@@ -16,6 +16,7 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
       title: this.title,
       song: this.model
     }));
+    this.$('#tag-labels').tagit();
     return this;
   },
 
