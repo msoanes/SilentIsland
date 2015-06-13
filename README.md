@@ -13,10 +13,10 @@ SilentIsland is a music hosting and playing site, inspired by SoundCloud, built 
 - [x] Create sessions (log in)
 - [x] Upload and tag songs
 - [x] Listen to songs
-- [ ] Subscribe to tags
-- [ ] View a feed of songs with subscribed tags
+- [x] Subscribe to tags
+- [x] View a feed of songs with subscribed tags
 - [ ] Search for songs by description
-- [ ] Queue songs for automatic playback
+- [x] Queue songs for automatic playback
 
 ## Design Docs
 * [View Wireframes][views]
