@@ -184,6 +184,7 @@
    background-color: #358f7f;
    position: relative;
    transition: all 0.3s;
+   opacity: 1;
  }
 
  .play-button .play-symbol {
@@ -191,6 +192,7 @@
    font-size: 48pt;
    margin-left: 8px;
    transition: color 0.2s;
+   transition: opacity 0.1s;
  }
 
  .play-button .play-symbol.glyphicon-pause {
@@ -213,7 +215,6 @@
 
  .play-button:active .play-symbol {
    transition: none;
-   color: #444;
  }
 
  .song-info {
@@ -584,4 +585,8 @@ button:active {
 .play-queue-title h2 {
   margin: 10px 0px 0px 10px;
   padding: 10px;
+}
+
+.transparent {
+  opacity: 0;
 }

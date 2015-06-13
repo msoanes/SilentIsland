@@ -103,12 +103,22 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
   },
 
   setPauseGlyphicon: function () {
-    this.$('.play-symbol').removeClass('glyphicon-play');
-    this.$('.play-symbol').addClass('glyphicon-pause');
+    var view = this;
+    view.$('.play-symbol').addClass('transparent');
+    view.$('.play-symbol').on('transitionend', function () {
+      view.$('.play-symbol').removeClass('glyphicon-play');
+      view.$('.play-symbol').addClass('glyphicon-pause');
+      view.$('.play-symbol').removeClass('transparent')
+    })
   },
 
   setPlayGlyphicon: function () {
-    this.$('.play-symbol').removeClass('glyphicon-pause');
-    this.$('.play-symbol').addClass('glyphicon-play');
+    var view = this;
+    view.$('.play-symbol').addClass('transparent');
+    view.$('.play-symbol').on('transitionend', function () {
+      view.$('.play-symbol').removeClass('glyphicon-pause');
+      view.$('.play-symbol').addClass('glyphicon-play');
+      view.$('.play-symbol').removeClass('transparent')
+    })
   }
 });
