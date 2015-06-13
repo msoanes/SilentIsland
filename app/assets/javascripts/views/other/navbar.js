@@ -4,7 +4,9 @@ SilentIsland.Views.Navbar = Backbone.CompositeView.extend({
   className: 'nav-bar',
 
   events: {
+    'click .logo': 'stream',
     'click .stream-link': 'stream',
+    'click .explore-link': 'explore',
     'click .upload-link': 'upload',
     'click .sign-out-link': 'signOut'
   },
@@ -24,5 +26,9 @@ SilentIsland.Views.Navbar = Backbone.CompositeView.extend({
 
   signOut: function () {
     $('#hidden-signout').submit();
+  },
+
+  explore: function () {
+    alert('Not yet implemented');
   }
 });
