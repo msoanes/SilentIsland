@@ -13,16 +13,13 @@ SilentIsland.Views.Stream = Backbone.CompositeView.extend({
   },
 
   checkCollectionEmptiness: function () {
-    setTimeout(function () {
-      console.log(this.collection);
-      if (this.collection.isEmpty()) {
-        this.collection = SilentIsland.router.songs;
-      }
-      var indexView = new SilentIsland.Views.SongsIndex({
-        collection: this.collection
-      });
-      this.collection.fetch();
-      this.addSubview('.songs-index', indexView);
-    }.bind(this), 100);
+    if (this.collection.isEmpty()) {
+      this.collection = SilentIsland.router.songs;
+    }
+    var indexView = new SilentIsland.Views.SongsIndex({
+      collection: this.collection
+    });
+    this.collection.fetch();
+    this.addSubview('.songs-index', indexView);
   }
 });
