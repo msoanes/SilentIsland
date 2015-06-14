@@ -39,6 +39,11 @@ module Api
       render :index
     end
 
+    def listens
+      @songs = current_user.listened_songs
+      render :index
+    end
+
     private
       def require_song_owner!
         if Song.find(params[:id]).uploader != current_user
