@@ -3,7 +3,7 @@ SilentIsland.Collections.Songs = Backbone.Collection.extend({
 
   model: SilentIsland.Models.Song,
 
-  getOrFetch: function (id) {
+  getOrFetch: function (id, callback) {
     var collection = this;
     var model = collection.get(id);
     if (!model) {
@@ -12,6 +12,7 @@ SilentIsland.Collections.Songs = Backbone.Collection.extend({
     model.fetch({
       success: function () {
         collection.add(model);
+        callback();
       }
     });
     return model;
