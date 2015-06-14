@@ -8,6 +8,7 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
 
   events: {
     'click button.song-upload': 'uploadSong',
+    'click .destroy': 'destroySong',
     'submit form': 'submit',
   },
 
@@ -57,5 +58,12 @@ SilentIsland.Views.SongForm = Backbone.View.extend({
     return _(tagList).map(function (tagLabel) {
       return tagLabel.trim();
     });
+  },
+
+  destroySong: function () {
+    if (confirm('Are you sure you want to destroy this song?')) {
+      this.model.destroy();
+      window.history.back();
+    }
   }
 });
