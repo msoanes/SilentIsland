@@ -477,29 +477,36 @@ button:active {
   color: #f40;
 }
 
-.queue {
+.song-item-controls {
   position: absolute;
   height: 20px;
   right: 0;
   top: 0;
-  font-size: 10pt;
+  font-size: 24pt;
   font-weight: bold;
   transition: color .15s;
   cursor: pointer;
 }
 
-.queue:hover {
+.song-item-controls div {
+  float: left;
+}
+
+.song-item-controls div:hover {
   color: #f60;
 }
 
-.queue:active {
+.song-item-controls div:active {
   color: #d30;
 }
 
 .queue .glyphicon-play {
   position: relative;
   left: 12px;
-  font-size: 24pt;
+}
+
+.queue .glyphicon-plus {
+  font-size: 10pt;
 }
 
 .play-queue-item {
