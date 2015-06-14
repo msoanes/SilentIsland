@@ -6,14 +6,14 @@
 # #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 # #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-p "Creating users..."
+puts "Creating users..."
 User.create!(username: 'cdk', password: 'password')
 User.create!(username: 'flatwound', password: 'password')
 User.create!(username: 'pitx', password: 'password')
 User.create!(username: '_ghost', password: 'password')
 User.create!(username: 'zapac', password: 'password')
 User.create!(username: 'gmz', password: 'password')
-p 'Created users!'
+puts 'Created users!'
 
 genres =
 
@@ -61,15 +61,16 @@ song_hashes = [
   }
 ]
 
-p 'Creating songs...'
+puts 'Creating songs...'
 
 song_hashes.each_with_index do |song_hash, idx|
-  p "#{idx}/6"
+  puts "#{idx}/6"
   Song.create!(song_hash)
 end
 
-p 'Adding filler tags'
+puts 'Adding filler tags'
 genres = File.readlines("#{Dir.pwd}/lib/assets/genres.txt").map(&:chomp)
-genres.each do |tag_label|
+genres.each_with_index do |tag_label, idx|
   Tag.create(label: tag_label)
+  puts "#{idx} / #{genres.length}" if idx % 50 === 0
 end
