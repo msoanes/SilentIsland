@@ -480,9 +480,9 @@ button:active {
 .queue {
   position: absolute;
   height: 20px;
-  top: 20px;
   right: 0;
-  font-size: 36px;
+  top: 0;
+  font-size: 10pt;
   font-weight: bold;
   transition: color .15s;
   cursor: pointer;
@@ -496,8 +496,10 @@ button:active {
   color: #d30;
 }
 
-.queue span {
-  height: 20px;
+.queue .glyphicon-play {
+  position: relative;
+  left: 12px;
+  font-size: 24pt;
 }
 
 .play-queue-item {

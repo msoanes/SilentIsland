@@ -8,7 +8,10 @@
     <%= song.get('uploader').username %>
   </p>
 
-  <div class="queue"><span>+</span></div>
+  <div class="queue">
+    <span class="glyphicon glyphicon-play"></span>
+    <span class="glyphicon glyphicon-plus"></span>
+  </div>
 
   <% if (song.get('tags')) { %>
     <p class="tags">
