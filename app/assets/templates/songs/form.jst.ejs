@@ -12,7 +12,7 @@
   <button class="song-upload">Upload File</button>
 
   <label for="tag-labels">Tags</label>
-  <input type="hidden" name="tag_string" id="tag-labels" value="">
+  <input type="hidden" name="tag_string" id="tag-labels" value="<%= song.commaSepTags() %>">
 
   <button>Save Song</button>
 </form>
