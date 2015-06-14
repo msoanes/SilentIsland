@@ -17,6 +17,12 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
     this.$el.html(this.template({
       currentSong: this.currentSong
     }));
+    this.attachSubviews();
+    this.audioSetup();
+    return this;
+  },
+
+  audioSetup: function () {
     this.$audio = this.$('audio');
     this.$audio.attr('src', this.currentSong.get('url'));
     _.bindAll(this, 'setInfo', 'updateCurrentTime', 'endPlay');
@@ -24,9 +30,7 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
     this.$audio.on('loadedmetadata', this.setInfo);
     this.$audio.on('timeupdate', this.updateCurrentTime);
     this.$audio.on('ended', this.endPlay);
-    this.attachSubviews();
     this.subviews('.song-controls').toArray()[0].$audio = this.$audio;
-    return this;
   },
 
   switchSong: function (newSong) {
