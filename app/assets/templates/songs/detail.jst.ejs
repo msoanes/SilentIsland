@@ -2,7 +2,9 @@
   <% if (song.get('uploader')) { %>
     <h1>
       <%= song.escape('title') %>
-      <small><%= _.escape(song.get('uploader').username) %></small>
+      <small class="uploader" data-id="<%= song.get('id') %>">
+        <%= _.escape(song.get('uploader').username) %>
+      </small>
     </h1>
   <% } %>
 </div>
@@ -14,5 +16,6 @@
     <p>this song has no description :( </p>
   <% } %>
 
+  <h2>Tags:</h2>
   <p class="tags"></p>
 </div>
