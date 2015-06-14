@@ -1,5 +1,7 @@
 module Api
   class SongsController < ApiController
+    before_action :require_song_owner!, only: [:update, :destroy]
+
     def create
       @song = current_user.songs.new(song_params)
       if @song.save
@@ -38,6 +40,12 @@ module Api
     end
 
     private
+      def require_song_owner!
+        if Song.find(params[id]).uploader != current_user
+          render json: ['Cannot modify or remove other users songs'], status: :forbidden
+        end
+      end
+
       def song_params
         params.require(:song).permit(:title, :url, :description, tag_labels: [])
       end
