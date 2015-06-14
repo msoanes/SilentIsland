@@ -57,13 +57,19 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   },
 
   songEdit: function (id) {
-    var song = this.songs.getOrFetch(id);
-    var view = new SilentIsland.Views.SongForm({
-      model: song,
-      collection: this.songs,
-      title: 'Edit Song'
+    var router = this;
+    var song = router.songs.getOrFetch(id, function () {
+      if (song.get('uploader').id !== SilentIsland.currentUser.get('id')) {
+        Backbone.history.navigate('/', { trigger: true });
+        return;
+      }
+      var view = new SilentIsland.Views.SongForm({
+        model: song,
+        collection: router.songs,
+        title: 'Edit Song'
+      });
+      router._swapView(view);
     });
-    this._swapView(view);
   },
 
   _swapView: function (view) {
