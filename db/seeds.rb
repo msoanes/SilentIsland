@@ -1,11 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# #
+# # Examples:
+# #
+# #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+# #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 p "Creating users..."
 User.create!(username: 'cdk', password: 'password')
 User.create!(username: 'flatwound', password: 'password')
@@ -14,6 +14,8 @@ User.create!(username: '_ghost', password: 'password')
 User.create!(username: 'zapac', password: 'password')
 User.create!(username: 'gmz', password: 'password')
 p 'Created users!'
+
+genres =
 
 song_hashes = [
   {
@@ -64,4 +66,10 @@ p 'Creating songs...'
 song_hashes.each_with_index do |song_hash, idx|
   p "#{idx}/6"
   Song.create!(song_hash)
+end
+
+p 'Adding filler tags'
+genres = File.readlines("#{Dir.pwd}/lib/assets/genres.txt").map(&:chomp)
+genres.each do |tag_label|
+  Tag.create(label: tag_label)
 end
