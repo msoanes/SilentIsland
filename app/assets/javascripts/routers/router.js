@@ -11,6 +11,7 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
     '': 'stream',
     'explore': 'explore',
     'songs/new': 'songNew',
+    'songs/:id/edit': 'songEdit',
     'tags/:id': 'tagDetail',
     'users/:id': 'userDetail',
     'songs/:id': 'songDetail',
@@ -51,6 +52,16 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
       model: song,
       collection: this.songs,
       title: 'New Song'
+    });
+    this._swapView(view);
+  },
+
+  songEdit: function (id) {
+    var song = this.songs.getOrFetch(id);
+    var view = new SilentIsland.Views.SongForm({
+      model: song,
+      collection: this.songs,
+      title: 'Edit Song'
     });
     this._swapView(view);
   },
