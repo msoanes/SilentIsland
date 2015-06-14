@@ -7,10 +7,12 @@
   <% } %>
 </div>
 
-<div class="panel">
+<div class="panel song-detail">
   <% if (song.get('description')) { %>
     <p><%= song.escape('description') %></p>
   <% } else { %>
     <p>this song has no description :( </p>
   <% } %>
+
+  <p class="tags"></p>
 </div>
