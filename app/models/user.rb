@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :subscribed_tags, through: :subscribeds, source: :subscribable, source_type: 'Tag'
   has_many :subscribed_tag_songs, through: :subscribed_tags, source: :songs
 
+  has_many :listens
+  has_many :listened_songs, through: :listens, source: :song
+
   after_initialize :ensure_session_token
 
   attr_accessor :password
