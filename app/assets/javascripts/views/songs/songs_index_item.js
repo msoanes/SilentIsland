@@ -14,7 +14,7 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
 
   initialize: function (options) {
     this.model = options.model;
-    this.listenTo(this.model, 'stop', this.stopSong);
+    this.listenTo(this.model, 'stop', this.removePlayingClass);
     this.listenTo(this.model, 'play', this.addPlayingClass);
   },
 
@@ -40,7 +40,7 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
     this.$el.addClass('active');
   },
 
-  stopSong: function () {
+  removePlayingClass: function () {
     this.$el.removeClass('active');
   },
 
