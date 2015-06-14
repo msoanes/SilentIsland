@@ -3,6 +3,6 @@
 </div>
 <div class="queue-item-info">
   <h3><%= song.escape('title') %></h3>
-  <p><%= song.get('uploader').username %></p>
+  <p><%= _.escape(song.get('uploader').username) %></p>
   <span class="unqueue-song glyphicon glyphicon-remove"></span>
 </div>

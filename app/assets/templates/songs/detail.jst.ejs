@@ -1,6 +1,9 @@
 <div class="title">
   <% if (song.get('uploader')) { %>
-    <h1><%= song.escape('title') %> <small><%= song.get('uploader').username %></small></h1>
+    <h1>
+      <%= song.escape('title') %>
+      <small><%= _.escape(song.get('uploader').username) %></small>
+    </h1>
   <% } %>
 </div>
 

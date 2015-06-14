@@ -36,7 +36,7 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
       this.currentSong = newSong;
       this.$audio.attr('src', this.currentSong.get('url'));
       this.$('.song-title').text(this.currentSong.escape('title'));
-      this.$('.song-uploader').text(this.currentSong.get('uploader').username);
+      this.$('.song-uploader').text(_.escape(this.currentSong.get('uploader').username));
       this.$('.song-uploader').data('id', this.currentSong.get('uploader').id);
     } else {
       this.togglePlay();

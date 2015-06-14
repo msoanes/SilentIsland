@@ -5,7 +5,7 @@
   <h2 class="song-title"><%= song.escape('title') %></h2>
 
   <p class="song-uploader" data-id="<%= song.get('uploader').id %>">
-    <%= song.get('uploader').username %>
+    <%= _.escape(song.get('uploader').username) %>
   </p>
 
   <div class="song-item-controls">
