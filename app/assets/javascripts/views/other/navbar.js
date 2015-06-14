@@ -35,6 +35,6 @@ SilentIsland.Views.Navbar = Backbone.CompositeView.extend({
   },
 
   explore: function () {
-    alert('Not yet implemented');
+    Backbone.history.navigate('explore', { trigger: true });
   }
 });
