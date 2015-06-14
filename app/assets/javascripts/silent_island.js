@@ -23,6 +23,9 @@ window.SilentIsland = {
       mainCollection: this.router.songs
     });
 
+    this.currentUser = this.router.users.getOrFetch(CURRENT_USER_ID);
+    this.currentUser.fetch();
+
     $('#right-content').append(this.player.render().$el);
     $('#right-content').append(this.playQueue.render().$el);
 
