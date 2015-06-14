@@ -1,5 +1,7 @@
 module Api
   class SubscriptionsController < ApiController
+    before_action :require_subscription_owner!, only: :destroy
+
     def create
       @subscription = current_user.subscribeds.new(subscription_params)
       if @subscription.save
@@ -17,7 +19,7 @@ module Api
 
     private
       def current_subscription
-        @current_subscription || Subscription.find(params[:id])
+        @current_subscription ||= Subscription.find(params[:id])
       end
 
       def subscription_params
@@ -27,7 +29,7 @@ module Api
       end
 
       def require_subscription_owner!
-        unless current_subscription.user_id == current_user.id
+        unless current_subscription.follower_id == current_user.id
           render json: ['You cannot unsubscribe someone else'], status: :unauthorized
         end
       end
