@@ -492,6 +492,10 @@ button:active {
   color: #f60;
 }
 
+.queue:active {
+  color: #d30;
+}
+
 .queue span {
   height: 20px;
 }
@@ -589,4 +593,27 @@ button:active {
 
 .transparent {
   opacity: 0;
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+ul.ui-autocomplete {
+  list-style: none;
+  background-color: #fff;
+  padding-left: 0;
+  width: 10%;
+  border: 1px solid #ddd;
+}
+
+li.ui-menu-item {
+  color: #444;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+li.ui-menu-item.ui-state-focus {
+  color: #f50;
+  background-color: #eee;
+  transition: background-color 0.2s, color 0.2s;
 }
