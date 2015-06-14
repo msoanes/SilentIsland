@@ -23,7 +23,9 @@
   <% if (song.get('tags')) { %>
     <p class="tags">
       <% song.get('tags').forEach(function (tag) { %>
-        <span class="tag" data-id="<%= tag.id %>"><%= tag.label %></span>
+        <span class="tag" data-id="<%= tag.id %>">
+          <%= _.escape(tag.label) %>
+        </span>
       <% }) %>
     </p>
 
