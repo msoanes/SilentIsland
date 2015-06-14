@@ -1,16 +1,15 @@
-SilentIsland.Views.AudioPlayer = Backbone.View.extend({
+SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
   template: JST['other/audio_player'],
 
   initialize: function () {
     this.currentSong = new SilentIsland.Models.Song();
     this.listenTo(this.collection, 'play', this.switchSong);
+    var seeker = new SilentIsland.Views.Seeker();
+    this.addSubview('.song-controls', seeker);
   },
 
   events: {
     'click .play-button-main': 'togglePlay',
-    'mousedown input.seeker': 'startSeek',
-    'mouseup input.seeker': 'endSeek',
-    'input input.seeker': 'seek',
     'input input.volume': 'setVolume'
   },
 
@@ -22,16 +21,18 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     this.$audio.attr('src', this.currentSong.get('url'));
     _.bindAll(this, 'setInfo', 'updateCurrentTime', 'endPlay');
 
-    this.$audio.on('canplay', this.setInfo);
+    this.$audio.on('loadedmetadata', this.setInfo);
     this.$audio.on('timeupdate', this.updateCurrentTime);
     this.$audio.on('ended', this.endPlay);
-
+    this.attachSubviews();
+    this.subviews('.song-controls').toArray()[0].$audio = this.$audio;
     return this;
   },
 
   switchSong: function (newSong) {
     if (newSong !== this.currentSong) {
       // This is bad: go back to regular template rendering now you know what the problem is
+      // On the other hand, preserves volume levels etc. easily.
       this.currentSong.trigger('stop', this.currentSong);
       this.currentSong = newSong;
       this.$audio.attr('src', this.currentSong.get('url'));
@@ -57,7 +58,7 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
   setInfo: function () {
     var duration = Math.floor(this.$audio[0].duration);
     var renderedDuration = this.renderTime(duration);
-    this.$('input.seeker').attr('max', duration);
+    this.subviews('.song-controls').toArray()[0].setDuration(duration);
     this.$('.time-total').text(renderedDuration);
     this.togglePlay();
   },
@@ -77,21 +78,6 @@ SilentIsland.Views.AudioPlayer = Backbone.View.extend({
     }
     var minutes = Math.floor(totalSeconds / 60);
     return '' + minutes + ':' + seconds;
-  },
-
-  seek: function (event) {
-    var $input = $(event.currentTarget);
-    this.$audio[0].currentTime = $input.val();
-    this.updateCurrentTime();
-    this.togglePlay();
-  },
-
-  startSeek: function () {
-    this.$('input.seeker').addClass('seeking');
-  },
-
-  endSeek: function () {
-    this.$('input.seeker').removeClass('seeking');
   },
 
   setVolume: function (event) {
