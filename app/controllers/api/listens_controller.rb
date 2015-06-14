@@ -1,7 +1,7 @@
 module Api
   class ListensController < ApiController
     def create
-      @listen = Listen.new(listen_params)
+      @listen = current_user.listens.new(listen_params)
       if @listen.save
         render json: @listen
       else
