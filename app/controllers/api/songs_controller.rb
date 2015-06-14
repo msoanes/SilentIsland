@@ -41,7 +41,7 @@ module Api
 
     private
       def require_song_owner!
-        if Song.find(params[id]).uploader != current_user
+        if Song.find(params[:id]).uploader != current_user
           render json: ['Cannot modify or remove other users songs'], status: :forbidden
         end
       end
