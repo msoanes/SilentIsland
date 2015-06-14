@@ -1,4 +1,4 @@
-SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
+SilentIsland.Views.SongsIndexItem = Backbone.CompositeView.extend({
   template: JST['songs/index_item'],
 
   className: 'songs-list-item',
@@ -6,7 +6,6 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
   events: {
     'click .play-button': 'playSong',
     'click .song-title': 'visitSong',
-    'click .tag': 'visitTag',
     'click .song-uploader': 'visitUploader',
     'click .queue': 'queueSong',
     'click .edit': 'editSong'
@@ -16,10 +15,17 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
     this.model = options.model;
     this.listenTo(this.model, 'stop', this.removePlayingClass);
     this.listenTo(this.model, 'play', this.addPlayingClass);
+    if (this.model.get('tags')) {
+      var tagView = new SilentIsland.Views.TagList({
+        collection: this.model.get('tags')
+      });
+      this.addSubview('.tags', tagView);
+    }
   },
 
   render: function () {
     this.$el.html(this.template({ song: this.model }));
+    this.attachSubviews();
     if (this.model === SilentIsland.player.currentSong) {
       this.$el.addClass('active');
     }
@@ -42,11 +48,6 @@ SilentIsland.Views.SongsIndexItem = Backbone.View.extend({
 
   removePlayingClass: function () {
     this.$el.removeClass('active');
-  },
-
-  visitTag: function (event) {
-    var tagID = $(event.currentTarget).data('id');
-    Backbone.history.navigate('/tags/' + tagID, { trigger: true });
   },
 
   editSong: function () {
