@@ -337,7 +337,8 @@ input.volume {
  .tag, .tagit-choice {
    background-color: #ccc;
    border-radius: 3px;
-   padding: 2px 5px 0px 5px;
+   padding: 2px 2px 0px 5px;
+   margin: 2px;
    transition: background-color 0.2s;
    cursor: pointer;
  }
@@ -627,4 +628,22 @@ li.ui-menu-item.ui-state-focus {
   color: #f50;
   background-color: #eee;
   transition: background-color 0.2s, color 0.2s;
+}
+
+.title .destroy {
+  font-size: 24pt;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.title .destroy:hover {
+  color: #f40;
+}
+
+.title .destroy:active {
+  color: #b20;
+  transition: none;
 }
