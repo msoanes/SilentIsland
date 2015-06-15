@@ -1,6 +1,8 @@
 SilentIsland.Mixins.SongIndexable = {
   parse: function (payload) {
-    this.parseSubscription(payload);
+    if (this.subscribableOptions) {
+      this.parseSubscription(payload);
+    }
     if (payload.songs) {
       this._addSongs(payload.songs);
       delete payload.songs;
