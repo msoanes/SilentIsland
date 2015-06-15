@@ -6,7 +6,12 @@ SilentIsland.Views.SearchBar = Backbone.CompositeView.extend({
     view.$el.html(view.template());
     view.$('input').autocomplete({
       source: function(term, callback) {
-        $.getJSON('api/tags', { q: term.term }, callback);
+        function parse(response) {
+          callback(response.models);
+        }
+        $.getJSON('api/tags', {
+          q: term.term,
+          per: 10}, parse);
       },
 
       minLength: 2,
