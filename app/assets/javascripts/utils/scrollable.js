@@ -9,6 +9,7 @@ SilentIsland.Mixins.Scrollable = {
     var view = this;
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
       if (view.collection.page_number < view.collection.total_pages) {
+        debugger;
         view.collection.fetch({
           data: {page: view.collection.page_number + 1 },
           success: view.addItems.bind(this)
