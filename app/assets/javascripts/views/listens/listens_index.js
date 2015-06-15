@@ -21,8 +21,6 @@ SilentIsland.Views.ListensIndex = Backbone.CompositeView.extend({
   nextPage: function () {
     var view = this;
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-      console.log(view.collection.page_number);
-      console.log(view.collection.total_pages);
       if (view.collection.page_number < view.collection.total_pages) {
         view.collection.fetch({
           data: {page: view.collection.page_number + 1 },

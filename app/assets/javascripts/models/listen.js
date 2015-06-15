@@ -2,7 +2,6 @@ SilentIsland.Models.Listen = Backbone.Model.extend({
   urlRoot: '/api/listens',
 
   parse: function (payload) {
-    console.log(payload);
     if (payload.song) {
       this._addSong(payload.song);
       delete payload.song;
