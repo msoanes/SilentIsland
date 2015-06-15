@@ -16,6 +16,7 @@ SilentIsland.Views.SongsIndex = Backbone.CompositeView.extend(
   render: function () {
     this.$el.html(this.template());
     this.attachSubviews();
+    this.listenForScroll();
     return this;
   }
 }));
