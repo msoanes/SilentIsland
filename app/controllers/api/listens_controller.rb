@@ -10,7 +10,7 @@ module Api
     end
 
     def index
-      @listens = current_user.listens.includes(:song)
+      @listens = current_user.listens.includes(:song).order(created_at: :desc)
     end
 
     private
