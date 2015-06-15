@@ -4,12 +4,14 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
     this.songs = options.songs;
     this.tags = options.tags;
     this.users = options.users;
+    this.listens = new SilentIsland.Collections.Listens();
     this.streamCollection = new SilentIsland.Collections.Stream();
   },
 
   routes: {
     '': 'stream',
     'explore': 'explore',
+    'history': 'history',
     'songs/new': 'songNew',
     'songs/:id/edit': 'songEdit',
     'tags/:id': 'tagDetail',
@@ -47,6 +49,7 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   },
 
   songNew: function () {
+    console.log('song');
     var song = new SilentIsland.Models.Song();
     var view = new SilentIsland.Views.SongForm({
       model: song,
@@ -70,6 +73,12 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
       });
       router._swapView(view);
     });
+  },
+
+  history: function () {
+    this.listens.fetch();
+    var view = new SilentIsland.Views.ListensIndex({ collection: this.listens });
+    this._swapView(view);
   },
 
   _swapView: function (view) {
