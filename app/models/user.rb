@@ -7,14 +7,10 @@ class User < ActiveRecord::Base
 
   has_many :subscribeds, class_name: 'Subscription', foreign_key: :follower_id
 
-  has_many :subscribed_users, through: :subscribeds, source: :subscribable, source_type: 'User'
-  has_many :subscribed_user_songs, through: :subscribed_users, source: :songs
-
-  has_many :subscribed_tags, through: :subscribeds, source: :subscribable, source_type: 'Tag'
-  has_many :subscribed_tag_songs, through: :subscribed_tags, source: :songs
-
   has_many :listens
   has_many :listened_songs, through: :listens, source: :song
+
+  has_many :playlists
 
   after_initialize :ensure_session_token
 
