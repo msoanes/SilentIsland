@@ -4,7 +4,7 @@ SilentIsland.Collections.Stream = Backbone.Collection.extend({
   model: SilentIsland.Models.Song,
 
   parse: function (response) {
-    response = SilentIsland.Mixins.PageableParse(response);
+    response = SilentIsland.Mixins.PageableParse.call(this, response);
     var collection = this;
     _.each(response, function (songData) {
       var song = SilentIsland.router.songs.get(songData.id);
