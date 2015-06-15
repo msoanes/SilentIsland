@@ -25,7 +25,7 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   },
 
   explore: function () {
-    this.songs.fetch({ remove: false });
+    this.songs.fetch();
     var view = new SilentIsland.Views.Explore({ collection: this.songs });
     this._swapView(view);
   },
