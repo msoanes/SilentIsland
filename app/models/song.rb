@@ -7,6 +7,8 @@ class Song < ActiveRecord::Base
 
   after_save :save_tags
 
+  default_scope { order('created_at DESC') }
+
   def tag_labels=(labels)
     @tag_labels = labels
   end
