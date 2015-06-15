@@ -35,7 +35,7 @@ module Api
     end
 
     def stream
-      @songs = current_user.stream
+      @songs = current_user.stream.page(params[:page]).includes(:uploader, :tags)
       render :index
     end
 
