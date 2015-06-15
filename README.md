@@ -55,15 +55,15 @@ I will add a `SongQueue` Backbone view to hold and manage a `Songs` collection, 
 
 ### Bonus Features (TBD)
 - [ ] Play lists
-- [ ] Listenings history
-- [ ] Pagination/infinite scroll
+- [x] Listenings history
+- [x] Pagination/infinite scroll
 - [ ] Recommendations based on past listens (item-based collaborative filtering)
 - [ ] Song and User comments
 - [ ] Song and User likes
 - [ ] Multiple sessions/session management
 - [ ] User avatars
 - [ ] Song cover images
-- [ ] Typeahead search bar
+- [x] Typeahead search bar
 - [ ] Trending songs
 - [ ] Searching for Songs and Users
 
