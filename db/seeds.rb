@@ -63,9 +63,12 @@ song_hashes = [
 
 puts 'Creating songs...'
 
-song_hashes.each_with_index do |song_hash, idx|
-  puts "#{idx}/6"
-  Song.create!(song_hash)
+10.times do |new_songs_num|
+  song_hashes.each_with_index do |song_hash, idx|
+    puts "#{idx}/6"
+    song_hash[:title] += new_songs_num.to_s
+    Song.create!(song_hash)
+  end
 end
 
 puts 'Adding filler tags'
