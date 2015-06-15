@@ -20,7 +20,6 @@ SilentIsland.Mixins.SongIndexable = {
   },
 
   _addSongs: function (songs) {
-    debugger;
     var model = this;
     model.songs().page_number = songs.page;
     model.songs().total_pages = songs.total_pages;
