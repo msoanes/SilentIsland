@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.timeago
 //= require tag-it
 //= require jquery.serializejson
 //= require underscore
