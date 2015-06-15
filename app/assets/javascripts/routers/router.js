@@ -1,9 +1,9 @@
 SilentIsland.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    this.songs = options.songs;
-    this.tags = options.tags;
-    this.users = options.users;
+    this.songs = new SilentIsland.Collections.Songs();
+    this.tags = new SilentIsland.Collections.Tags();
+    this.users = new SilentIsland.Collections.Users();
     this.listens = new SilentIsland.Collections.Listens();
     this.streamCollection = new SilentIsland.Collections.Stream();
   },

@@ -8,9 +8,6 @@ window.SilentIsland = {
     var navbar = new SilentIsland.Views.Navbar();
     $('#nav').html(navbar.render().$el);
     this.router = new SilentIsland.Routers.Router({
-      tags: new SilentIsland.Collections.Tags(),
-      songs: new SilentIsland.Collections.Songs(),
-      users: new SilentIsland.Collections.Users(),
       $rootEl: $('#left-content')
     });
 
