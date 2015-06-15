@@ -9,7 +9,11 @@ module Api
 
     def index
       @tags = Tag.page(params[:page]).where("label LIKE ?", "%#{params[:q]}%")
-      render json: @tags
+      render json: {
+        models: @tags,
+        page: (params[:page] || '1').to_i,
+        total_pages: @tags.total_pages
+      }
     end
   end
 end
