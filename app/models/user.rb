@@ -45,6 +45,42 @@ class User < ActiveRecord::Base
   end
 
   def stream
-    subscribed_user_songs | subscribed_tag_songs
+    song_id_query = <<-SQL
+SELECT
+  songs.id
+FROM
+  songs
+JOIN
+  taggings
+ON
+  taggings.song_id = songs.id
+JOIN
+  tags
+ON
+  taggings.tag_id = tags.id
+JOIN
+  subscriptions
+ON
+  subscriptions.subscribable_id = tags.id AND subscriptions.subscribable_type = 'Tag'
+WHERE
+  subscriptions.follower_id = #{id}
+UNION
+SELECT
+  songs.id
+FROM
+  songs
+JOIN
+  subscriptions
+ON
+  subscriptions.subscribable_id = songs.uploader_id AND
+    subscriptions.subscribable_type = 'User'
+WHERE
+  subscriptions.follower_id = #{id}
+SQL
+    song_ids = ActiveRecord::Base.connection.execute(song_id_query).map do |h|
+      h['id'].to_i
+    end
+
+    Song.where('"songs"."id" IN (?)', song_ids)
   end
 end
