@@ -3,6 +3,8 @@ SilentIsland.Collections.Users = Backbone.Collection.extend({
 
   model: SilentIsland.Models.User,
 
+  parse: SilentIsland.Mixins.PageableParse,
+
   getOrFetch: function (id) {
     var collection = this;
     var model = collection.get(id);
