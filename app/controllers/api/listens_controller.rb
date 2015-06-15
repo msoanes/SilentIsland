@@ -9,6 +9,10 @@ module Api
       end
     end
 
+    def index
+      @listens = current_user.listens.includes(:song)
+    end
+
     private
       def listen_params
         params.require(:listen).permit(:song_id)

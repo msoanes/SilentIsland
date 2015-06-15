@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:show, :index]
     resources :users, only: [:show, :index]
     resources :subscriptions, only: [:create, :destroy]
-    resources :listens, only: :create
+    resources :listens, only: [:create, :index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
