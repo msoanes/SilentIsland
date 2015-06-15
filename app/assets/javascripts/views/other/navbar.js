@@ -6,9 +6,10 @@ SilentIsland.Views.Navbar = Backbone.CompositeView.extend({
   events: {
     'click .logo': 'stream',
     'click .stream-link': 'stream',
-    'click .explore-link': 'explore',
     'click .upload-link': 'upload',
-    'click .sign-out-link': 'signOut'
+    'click .explore-link': 'explore',
+    'click .history-link': 'history',
+    'click .sign-out-link': 'signOut',
   },
 
   initialize: function () {
@@ -30,11 +31,15 @@ SilentIsland.Views.Navbar = Backbone.CompositeView.extend({
     Backbone.history.navigate('songs/new', { trigger: true });
   },
 
-  signOut: function () {
-    $('#hidden-signout').submit();
-  },
-
   explore: function () {
     Backbone.history.navigate('explore', { trigger: true });
+  },
+
+  history: function () {
+    Backbone.history.navigate('history', { trigger: true });
+  },
+
+  signOut: function () {
+    $('#hidden-signout').submit();
   }
 });
