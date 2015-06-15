@@ -3,7 +3,7 @@ SilentIsland.Views.ListensIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.addListens();
-    this.listenTo(this.collection, 'add', this.addListen);
+    this.listenTo(this.collection, 'reset', this.addListens);
   },
 
   render: function () {
@@ -17,6 +17,7 @@ SilentIsland.Views.ListensIndex = Backbone.CompositeView.extend({
     indexView.collection.each(function (listen) {
       indexView.addListen(listen);
     });
+    this.$('abbr.timeago').timeago();
   },
 
   addListen: function (listen) {

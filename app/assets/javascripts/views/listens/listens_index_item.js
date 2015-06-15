@@ -7,6 +7,7 @@ SilentIsland.Views.ListensIndexItem = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.listen-song-item', songItemView);
+    this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {
@@ -14,7 +15,6 @@ SilentIsland.Views.ListensIndexItem = Backbone.CompositeView.extend({
       listen: this.model
     }));
     this.attachSubviews();
-    $('abbr.timeago').timeago();
     return this;
   }
 })
