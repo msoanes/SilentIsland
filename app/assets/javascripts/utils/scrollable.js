@@ -11,7 +11,7 @@ SilentIsland.Mixins.Scrollable = {
       if (view.collection.page_number < view.collection.total_pages) {
         view.collection.fetch({
           data: {page: view.collection.page_number + 1 },
-          success: view.addItems.bind(this)
+          success: view.addItems.bind(view),
         });
       }
     }
