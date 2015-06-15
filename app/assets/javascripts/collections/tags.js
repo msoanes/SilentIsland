@@ -3,11 +3,7 @@ SilentIsland.Collections.Tags = Backbone.Collection.extend({
 
   model: SilentIsland.Models.Tag,
 
-  parse: function (payload) {
-    this.page_number = parseInt(payload.page_number)
-    this.total_pages = parseInt(payload.total_pages)
-    return payload.models
-  },
+  parse: SilentIsland.Mixins.PageableParse,
 
   getOrFetch: function (id) {
     var collection = this;
