@@ -1,28 +1,21 @@
-SilentIsland.Views.SongsIndex = Backbone.CompositeView.extend({
+SilentIsland.Views.SongsIndex = Backbone.CompositeView.extend(
+  _.extend({}, SilentIsland.Mixins.Scrollable, {
+
   template: JST['songs/index'],
 
+  scrollParams: {
+    view: 'SongsIndexItem',
+    listSelector: '.songs-list'
+  },
+
   initialize: function (options) {
-    this.addSongs();
-    this.listenTo(this.collection, 'add', this.addSong);
+    this.addItems();
+    this.listenTo(this.collection, 'add', this.addItem);
   },
 
   render: function () {
     this.$el.html(this.template());
     this.attachSubviews();
     return this;
-  },
-
-  addSongs: function () {
-    var indexView = this;
-    indexView.collection.each(function (song) {
-      indexView.addSong(song);
-    });
-  },
-
-  addSong: function (song) {
-    var songsIndexItem = new SilentIsland.Views.SongsIndexItem({
-      model: song
-    });
-    this.addSubview('.songs-list', songsIndexItem);
   }
-});
+}));
