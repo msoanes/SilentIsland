@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :songs, except: [:new, :edit] do
       get 'stream', on: :collection
-      get 'listens', on: :collection
     end
     resources :tags, only: [:show, :index]
     resources :users, only: [:show, :index]
