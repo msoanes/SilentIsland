@@ -2,7 +2,7 @@
   <% if (song.get('uploader')) { %>
     <h1>
       <%= song.escape('title') %>
-      <small class="uploader" data-id="<%= song.get('id') %>">
+      <small class="uploader" data-id="<%= song.get('uploader').id %>">
         <%= _.escape(song.get('uploader').username) %>
       </small>
     </h1>
