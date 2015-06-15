@@ -25,7 +25,7 @@ module Api
     end
 
     def index
-      @songs = Song.includes(:tags, :uploader)
+      @songs = Song.includes(:tags, :uploader).page(params[:page])
     end
 
     def destroy

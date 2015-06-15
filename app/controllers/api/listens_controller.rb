@@ -10,7 +10,10 @@ module Api
     end
 
     def index
-      @listens = current_user.listens.includes(:song).order(created_at: :desc)
+      @listens = current_user.listens
+        .page(params[:page])
+        .includes(song: [:uploader, :tags])
+        .order(created_at: :desc)
     end
 
     private
