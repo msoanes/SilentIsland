@@ -14,6 +14,7 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
     'history': 'history',
     'songs/new': 'songNew',
     'songs/:id/edit': 'songEdit',
+    'playlists': 'playlistsIndex',
     'tags/:id': 'tagDetail',
     'users/:id': 'userDetail',
     'songs/:id': 'songDetail',
@@ -72,6 +73,16 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
       });
       router._swapView(view);
     });
+  },
+
+  playlistsIndex: function () {
+    var playlists = new SilentIsland.Collections.Playlists();
+    playlists.fetch();
+    var view = new SilentIsland.Views.PlaylistsIndex({
+      collection: playlists
+    });
+
+    this._swapView(view);
   },
 
   history: function () {
