@@ -10,7 +10,7 @@ SilentIsland.Models.Tag = Backbone.Model.extend(
       },
 
       indexableOptions: {
-        routeName: 'tag'
+        routeName: 'tags'
       }
     }
   )

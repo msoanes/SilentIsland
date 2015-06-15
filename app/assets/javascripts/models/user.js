@@ -10,7 +10,7 @@ SilentIsland.Models.User = Backbone.Model.extend(
       },
 
       indexableOptions: {
-        routeName: 'user'
+        routeName: 'users'
       }
     }
   )
