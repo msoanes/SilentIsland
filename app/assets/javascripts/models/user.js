@@ -7,6 +7,10 @@ SilentIsland.Models.User = Backbone.Model.extend(
       subscribableOptions: {
         foreignKey: "subscribable_id",
         subscribableType: 'User'
+      },
+
+      indexableOptions: {
+        routeName: 'user'
       }
     }
   )

@@ -7,6 +7,10 @@ SilentIsland.Models.Tag = Backbone.Model.extend(
       subscribableOptions: {
         foreignKey: "subscribable_id",
         subscribableType: 'Tag'
+      },
+
+      indexableOptions: {
+        routeName: 'tag'
       }
     }
   )
