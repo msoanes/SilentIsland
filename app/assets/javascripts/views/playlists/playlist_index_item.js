@@ -1,6 +1,8 @@
 SilentIsland.Views.PlaylistsIndexItem = Backbone.View.extend({
   template: JST['playlists/index_item'],
 
+  className: 'panel playlist-index-item',
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
@@ -11,4 +13,4 @@ SilentIsland.Views.PlaylistsIndexItem = Backbone.View.extend({
     }));
     return this;
   }
-})
+});
