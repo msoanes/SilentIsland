@@ -49,7 +49,6 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   },
 
   songNew: function () {
-    console.log('song');
     var song = new SilentIsland.Models.Song();
     var view = new SilentIsland.Views.SongForm({
       model: song,
