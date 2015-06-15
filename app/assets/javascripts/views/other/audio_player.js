@@ -5,12 +5,13 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
     this.currentSong = new SilentIsland.Models.Song();
     this.listenTo(this.collection, 'play', this.switchSong);
     var seeker = new SilentIsland.Views.Seeker();
+    var volumeControl = new SilentIsland.Views.VolumeControl();
     this.addSubview('.song-controls', seeker);
+    this.addSubview('.song-controls', volumeControl);
   },
 
   events: {
     'click .play-button-main': 'togglePlay',
-    'input input.volume': 'setVolume'
   },
 
   render: function () {
@@ -31,6 +32,7 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
     this.$audio.on('timeupdate', this.updateCurrentTime);
     this.$audio.on('ended', this.endPlay);
     this.subviews('.song-controls').toArray()[0].$audio = this.$audio;
+    this.subviews('.song-controls').toArray()[1].$audio = this.$audio;
   },
 
   switchSong: function (newSong) {
@@ -84,10 +86,6 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
     }
     var minutes = Math.floor(totalSeconds / 60);
     return '' + minutes + ':' + seconds;
-  },
-
-  setVolume: function (event) {
-    this.$audio[0].volume = Math.log($(event.currentTarget).val());
   },
 
   endPlay: function () {
