@@ -27,7 +27,6 @@ SilentIsland.Mixins.Subscribable = {
   },
 
   parseSubscription: function (payload) {
-    // Call this inside the model's #parse method.
     var attrs = {};
     attrs[this.subscribableOptions.foreignKey] = payload.id;
     attrs['subscribable_type'] = this.subscribableOptions.subscribableType;
