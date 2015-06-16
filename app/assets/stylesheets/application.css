@@ -666,3 +666,13 @@ li.ui-menu-item.ui-state-focus {
 .song-detail {
   padding: 1px 10px;
 }
+
+.song-count {
+  font-size: 14pt;
+  color: #bbb;
+  position: absolute;
+  top: 0;
+  right: 100px;
+  cursor: default;
+  z-index: 10000;
+}
