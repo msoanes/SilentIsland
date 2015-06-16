@@ -5,6 +5,9 @@ class Song < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  has_many :listens
+  has_many :listeners, through: :listens, source: :user
+
   after_save :save_tags
 
   default_scope { order('created_at DESC') }
