@@ -4,6 +4,8 @@ json.songs do
   json.partial! 'api/songs/songs', songs: @tag.songs.page(params[:page]), page_num: (params[:page] || 1).to_i
 end
 
+json.song_count @tag.songs.count
+
 json.subscription do
   subscription = current_user.subscribeds.find_by(subscribable: @tag)
   if subscription
