@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:create, :destroy]
     resources :listens, only: [:create, :index]
     resources :playlists, only: [:show, :index, :create, :destroy]
+    resources :searches, only: :index
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
