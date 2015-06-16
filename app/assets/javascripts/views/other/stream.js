@@ -21,5 +21,6 @@ SilentIsland.Views.Stream = Backbone.CompositeView.extend({
     });
     this.collection.fetch();
     this.addSubview('.songs-index', indexView);
+    this.onRender();
   }
 });
