@@ -31,5 +31,6 @@ SilentIsland.Mixins.Scrollable = {
       model: listen
     });
     this.addSubview(this.scrollParams.listSelector, indexItemView);
+    this.onRender();
   }
 }
