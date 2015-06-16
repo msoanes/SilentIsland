@@ -12,7 +12,6 @@ SilentIsland.Views.SongsIndexItem = Backbone.CompositeView.extend({
   },
 
   initialize: function (options) {
-    this.model = options.model;
     this.listenTo(this.model, 'stop', this.removePlayingClass);
     this.listenTo(this.model, 'play', this.addPlayingClass);
     if (this.model.get('tags')) {
@@ -29,6 +28,7 @@ SilentIsland.Views.SongsIndexItem = Backbone.CompositeView.extend({
     if (this.model === SilentIsland.player.currentSong) {
       this.$el.addClass('active');
     }
+    this.onRender();
     return this;
   },
 
@@ -63,5 +63,9 @@ SilentIsland.Views.SongsIndexItem = Backbone.CompositeView.extend({
 
   queueSong: function () {
     this.model.trigger('queue', this.model);
-  }
+  },
+
+  onRender: function () {
+    this.$('abbr').timeago();
+  },
 });
