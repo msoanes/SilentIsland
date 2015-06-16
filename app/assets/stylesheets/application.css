@@ -14,9 +14,13 @@
  *= require_self
  */
  html {
-   background-color: #eeeeee;
+   background-color: #fafafa;
    -webkit-user-select: none;
    user-select: none;
+ }
+
+ h1, h2, h3, h4, h5, h6 {
+   font-weight: normal;
  }
 
  body {
@@ -169,7 +173,7 @@
 
  .songs-list-item {
    height: 80px;
-   margin-top: 10px;
+   margin-top: 20px;
    transition: all 0.1s;
    position: relative;
  }
@@ -191,14 +195,15 @@
 
  .play-button .play-symbol {
    color: white;
-   font-size: 48pt;
-   margin-left: 8px;
+   font-size: 40pt;
+   margin-left: 12px;
+   margin-top: 10px;
    transition: color 0.2s;
    transition: opacity 0.1s;
  }
 
  .play-button .play-symbol.glyphicon-pause {
-   margin-left: 10px;
+   margin-left: 15px;
  }
 
  .play-button:hover {
@@ -338,9 +343,13 @@ input.volume {
    background-color: #ccc;
    border-radius: 3px;
    padding: 2px 2px 0px 5px;
-   margin: 2px;
+   margin-left: 4px;
    transition: background-color 0.2s;
    cursor: pointer;
+ }
+
+ .tag:last-child {
+   padding-right: 5px;
  }
 
  .tag:hover {
