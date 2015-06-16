@@ -11,7 +11,6 @@ module Api
       @tags = Tag
         .page(params[:page])
         .per(params[:per])
-        .where("label LIKE ?", "%#{params[:q]}%")
 
       render json: {
         models: @tags,
