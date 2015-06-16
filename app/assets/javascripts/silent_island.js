@@ -23,17 +23,9 @@ window.SilentIsland = {
     this.currentUser = this.router.users.getOrFetch(CURRENT_USER_ID);
     this.currentUser.fetch();
 
-    setInterval(function () {
-      $('abbr.timeago').timeago();
-    }, 100);
-
     $('#right-content').append(this.player.render().$el);
     $('#right-content').append(this.playQueue.render().$el);
 
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  SilentIsland.initialize();
-});

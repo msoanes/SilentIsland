@@ -13,7 +13,8 @@ SilentIsland.Mixins.SongIndexable = {
   songs: function () {
     if (!this._songs) {
       this._songs = new SilentIsland.Collections.Songs();
-      this._songs.url = '/api/' + this.indexableOptions.routeName + '/' + this.get('id');
+      this._songs.url =
+        '/api/' + this.indexableOptions.routeName + '/' + this.get('id');
       this._songs.parse = function (response) {
         return SilentIsland.Mixins.PageableParse.call(this, response.songs);
       };

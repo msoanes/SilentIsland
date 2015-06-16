@@ -14,4 +14,8 @@
 <script>
   filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
   CURRENT_USER_ID = <%= current_user.id %>;
+
+  $(document).ready(function(){
+    SilentIsland.initialize();
+  });
 </script>

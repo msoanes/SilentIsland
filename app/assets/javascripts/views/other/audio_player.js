@@ -37,8 +37,6 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
 
   switchSong: function (newSong) {
     if (newSong !== this.currentSong) {
-      // This is bad: go back to regular template rendering now you know what the problem is
-      // On the other hand, preserves volume levels etc. easily.
       var listen = new SilentIsland.Models.Listen({ song_id: newSong.get('id') });
       listen.save();
       this.currentSong.trigger('stop', this.currentSong);

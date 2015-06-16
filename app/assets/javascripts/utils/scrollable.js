@@ -10,7 +10,7 @@ SilentIsland.Mixins.Scrollable = {
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
       if (view.collection.page_number < view.collection.total_pages) {
         view.collection.fetch({
-          data: {page: view.collection.page_number + 1 },
+          data: { page: view.collection.page_number + 1 },
           success: view.addItems.bind(view),
         });
       }
@@ -22,7 +22,8 @@ SilentIsland.Mixins.Scrollable = {
     indexView.collection.each(function (listen) {
       indexView.addItem(listen);
     });
-    this.scrollParams.itemsCallback && this.scrollParams.itemsCallback.call(this);
+    this.scrollParams.itemsCallback &&
+      this.scrollParams.itemsCallback.call(this);
   },
 
   addItem: function (listen) {
