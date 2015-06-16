@@ -95,5 +95,6 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this.$rootEl.html(view.$el);
     this._currentView = view.render();
+    view.onRender && view.onRender();
   }
 });
