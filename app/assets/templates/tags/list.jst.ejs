@@ -1,5 +1,5 @@
-<% tags.forEach(function (tag) { %>
-  <span class="tag" data-id="<%= tag.id %>">
-    <%= _.escape(tag.label) %>
+<% for(var i = 0; i < 3 && i < tags.length; i++ ) { %>
+  <span class="tag" data-id="<%= tags[i].id %>">
+    <%= _.escape(tags[i].label) %>
   </span>
-<% }) %>
+<% } %>
