@@ -32,7 +32,7 @@
  #nav {
    height: 60px;
    margin: auto;
-   background-color: #666666;
+   background-color: #3f3f3f;
  }
 
  .nav-bar {
@@ -64,11 +64,11 @@
  }
 
  .nav-bar div.link:not(.primary):hover {
-   background-color: #445554;
+   background-color: #555;
  }
 
- div:link:active {
-   background-color: #444444;
+ div.link:active {
+   background-color: #333333;
  }
 
  .nav-bar div.search-bar {
@@ -77,12 +77,12 @@
  }
 
  .nav-bar .logo {
-   font-family: 'Domine', serif;
-   font-size: 14pt;
+   /*font-family: 'Domine', serif;*/
+   font-size: 16pt;
    color: #fff;
-   padding: 0 20px;
+   padding: 0 30px;
    line-height: 60px;
-   background-color: #358f7f;
+   background-color: #fc6600;
    cursor: pointer;
    transition: background-color 0.2s;
  }
@@ -120,20 +120,20 @@
  }
 
  .logo:hover {
-   background-color: #379f82;
+   background-color: #ff5000;
  }
 
  .link.primary {
-   background-color: #02735f;
+   background-color: #ed5000;
    transition: background-color 0.2s;
  }
 
- div.primary > a:link {
+ .link.primary > a:link {
    color: #fff;
  }
 
- div.primary:hover {
-   background-color: #12835f;
+ .link.primary:hover {
+   background-color: #ff5000;
  }
 
  #content {
@@ -193,9 +193,9 @@
    float: left;
    height: 80px;
    width: 80px;
-   background-color: #358f7f;
+   background-color: #fa8;
    position: relative;
-   transition: all 0.3s;
+   transition: background-color 0.3s;
    opacity: 1;
  }
 
@@ -204,7 +204,7 @@
    font-size: 40pt;
    margin-left: 12px;
    margin-top: 10px;
-   transition: color 0.2s;
+   transition: color 0.9s;
    transition: opacity 0.1s;
  }
 
@@ -213,7 +213,7 @@
  }
 
  .play-button:hover {
-   background-color: #12835f;
+   background-color: #e40;
    cursor: pointer;
  }
 
@@ -223,7 +223,7 @@
 
  .play-button:active {
    transition: none;
-   background-color: #12735f;
+   background-color: #d30;
  }
 
  .play-button:active .play-symbol {
@@ -289,11 +289,12 @@
    -webkit-appearance: none;
    appearance: none;
    background-color: #ccc;
-   border: none;
    cursor: pointer;
    margin: 0;
    width: 100%;
    overflow: hidden;
+   border-width: 1px 0px;
+   border-color: #fff;
 }
 
 input.volume {
@@ -305,7 +306,7 @@ input.volume {
   position: relative;
   top: -40px;
   -webkit-appearance: none;
-  background-color: #cccfcc;
+  background-color: #cfcccc;
   transform: rotate(90);
   border: none;
 }
@@ -316,7 +317,7 @@ input.volume {
    height: 16px;
    width: 10px;
    position: relative;
-   background-color: #006030;
+   background-color: #f50;
    border: 0;
    margin: 0;
    padding: 0;
@@ -328,7 +329,7 @@ input.volume {
    height: 15px;
    width: 5px;
    position: relative;
-   background-color: #006030;
+   background-color: #f50;
    border: 0;
    margin: 0;
    padding: 0;
@@ -512,7 +513,7 @@ button:active {
 }
 
 .song-item-controls div:hover {
-  color: #f60;
+  color: #f50;
 }
 
 .song-item-controls div:active {
@@ -533,7 +534,7 @@ button:active {
 }
 
 .active.play-queue-item {
-  color: #f60;
+  color: #f50;
 }
 
 .active.play-queue-item .glyphicon-remove {
@@ -565,15 +566,15 @@ button:active {
 }
 
 .play-button-main {
-  background-color: #455;
+  background-color: #f50;
 }
 
 .play-button-main:hover {
-  background-color: #344;
+  background-color: #d40;
 }
 
 .play-button-main:active {
-  background-color: #233;
+  background-color: #310;
 }
 
 .tagit {
@@ -607,7 +608,7 @@ button:active {
 }
 
 .queue-controls > span.active {
-  color: #f60;
+  color: #f50;
 }
 
 .queue-controls > span:active {
