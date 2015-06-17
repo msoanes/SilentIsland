@@ -5,8 +5,16 @@ SilentIsland.Views.TagList = SilentIslandBaseView.extend({
     'click .tag': 'visitTag'
   },
 
+  initialize: function (options) {
+    options = options || {};
+    this.listAll = false || options.listAll;
+  },
+
   render: function () {
-    this.$el.html(this.template({ tags: this.collection }));
+    this.$el.html(this.template({
+      tags: this.collection,
+      listAll: this.listAll
+    }));
     return this;
   },
 
