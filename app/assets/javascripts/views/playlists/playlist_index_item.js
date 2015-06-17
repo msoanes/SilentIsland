@@ -1,4 +1,4 @@
-SilentIsland.Views.PlaylistsIndexItem = Backbone.View.extend({
+SilentIsland.Views.PlaylistsIndexItem = SilentIslandBaseView.extend({
   template: JST['playlists/index_item'],
 
   className: 'panel playlist-index-item',

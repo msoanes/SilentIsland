@@ -1,4 +1,4 @@
-SilentIsland.Views.Seeker = Backbone.View.extend({
+SilentIsland.Views.Seeker = SilentIslandBaseView.extend({
   template: JST['other/seeker'],
 
   tagName: 'input',

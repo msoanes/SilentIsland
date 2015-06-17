@@ -1,4 +1,4 @@
-SilentIsland.Views.TagList = Backbone.View.extend({
+SilentIsland.Views.TagList = SilentIslandBaseView.extend({
   template: JST['tags/list'],
 
   events: {

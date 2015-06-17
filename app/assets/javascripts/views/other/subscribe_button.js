@@ -1,4 +1,4 @@
-SilentIsland.Views.SubscribeButton = Backbone.View.extend({
+SilentIsland.Views.SubscribeButton = SilentIslandBaseView.extend({
   template: JST['other/subscribe_button'],
 
   initialize: function () {

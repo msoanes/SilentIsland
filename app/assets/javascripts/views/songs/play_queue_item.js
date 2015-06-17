@@ -1,4 +1,4 @@
-SilentIsland.Views.PlayQueueItem = Backbone.View.extend({
+SilentIsland.Views.PlayQueueItem = SilentIslandBaseView.extend({
   template: JST['songs/play_queue_item'],
 
   className: 'song-info play-queue-item panel',

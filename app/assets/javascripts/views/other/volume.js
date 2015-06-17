@@ -1,5 +1,5 @@
 // <input class="volume" type="range" name="name" min="1" max="2.71" step="0.01" value="2">
-SilentIsland.Views.VolumeControl = Backbone.View.extend({
+SilentIsland.Views.VolumeControl = SilentIslandBaseView.extend({
   template: JST['other/volume_control'],
 
   tagName: 'input',

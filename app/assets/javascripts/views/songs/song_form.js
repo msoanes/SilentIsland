@@ -1,4 +1,4 @@
-SilentIsland.Views.SongForm = Backbone.View.extend({
+SilentIsland.Views.SongForm = SilentIslandBaseView.extend({
   template: JST['songs/form'],
 
   initialize: function (options) {
