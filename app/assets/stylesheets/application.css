@@ -17,6 +17,7 @@
    background-color: #fafafa;
    -webkit-user-select: none;
    user-select: none;
+   overflow-x: hidden;
  }
 
  h1, h2, h3, h4, h5, h6 {
@@ -548,11 +549,12 @@ button:active {
 }
 
 .play-button.small .play-symbol {
-  font-size: 36pt;
+  position: relative;
+  font-size: 26pt;
 }
 
 .active .play-button.small {
-  background-color: #f60;
+  background-color: #f50;
 }
 
 .queue-item-info {
@@ -674,5 +676,13 @@ li.ui-menu-item.ui-state-focus {
   top: 0;
   right: 100px;
   cursor: default;
-  z-index: 10000;
+}
+
+.page {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.page.visible {
+  opacity: 1;
 }
