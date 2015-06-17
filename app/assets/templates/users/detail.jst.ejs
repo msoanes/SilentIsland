@@ -1,6 +1,14 @@
 <div class="title">
   <h1>User: <%= model.escape('username') %> </h1>
   <div class="subscribe-button"></div>
+  <div class="song-count">
+    <%= model.escape('song_count') %>
+    <% if (model.get('song_count') === 1) { %>
+      song
+    <% } else { %>
+      songs
+    <% } %>
+  </div>
 </div>
 
 <p>
