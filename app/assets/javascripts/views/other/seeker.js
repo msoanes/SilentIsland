@@ -39,5 +39,9 @@ SilentIsland.Views.Seeker = SilentIslandBaseView.extend({
 
   setDuration: function (duration) {
     this.$el.attr('max', duration);
+  },
+
+  resetVal: function () {
+    this.$el.val(0);
   }
 });
