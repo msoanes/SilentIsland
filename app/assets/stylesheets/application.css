@@ -77,14 +77,16 @@
  }
 
  .nav-bar .logo {
-   /*font-family: 'Domine', serif;*/
-   font-size: 16pt;
-   color: #fff;
-   padding: 0 30px;
-   line-height: 60px;
+   height: 60px;
+   margin: 0 auto;
    background-color: #fc6600;
    cursor: pointer;
    transition: background-color 0.2s;
+ }
+
+ .logo-img {
+   margin-top: 8px;
+   width: 180px;
  }
 
  .nav-bar > .right-nav {
