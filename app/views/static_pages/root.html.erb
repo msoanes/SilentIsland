@@ -14,7 +14,7 @@
 <script>
   filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
   CURRENT_USER_ID = <%= current_user.id %>;
-
+  LOGO_PATH = "<%= asset_url('logo.png') %>";
   $(document).ready(function(){
     SilentIsland.initialize();
   });
