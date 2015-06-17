@@ -2,7 +2,7 @@ class Tag < ActiveRecord::Base
   validates :label, presence: true, uniqueness: true, length: { maximum: 20 }
 
   has_many :taggings
-  has_many :songs, through: :taggings
+  has_many :songs, through: :taggings, counter_cache: true
 
   after_initialize :filter_label!
 

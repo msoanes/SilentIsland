@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates :username, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :songs, foreign_key: :uploader_id
+  has_many :songs, foreign_key: :uploader_id, counter_cache: true
 
   has_many :subscribeds, class_name: 'Subscription', foreign_key: :follower_id
 
