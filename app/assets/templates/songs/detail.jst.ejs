@@ -10,12 +10,31 @@
 </div>
 
 <div class="panel song-detail">
-  <% if (song.get('description')) { %>
-    <p><%= song.escape('description') %></p>
-  <% } else { %>
-    <p>this song has no description :( </p>
-  <% } %>
+  <div class="play-button">
+    <div class="play-symbol glyphicon-play glyphicon"></div>
+  </div>
 
-  <h2>Tags:</h2>
-  <p class="tags"></p>
+  <div class="song-detail-controls">
+    <% if (song.get('uploader')) { %>
+      <% if (SilentIsland.currentUser.get('id') === song.get('uploader').id) { %>
+        <span class="edit">
+          edit
+        </span> |
+      <% } %>
+    <% } %>
+    <span class="queue">
+      queue+
+    </span>
+  </div>
+
+  <div class="song-detail-info">
+    <% if (song.get('description')) { %>
+      <p><%= song.escape('description') %></p>
+    <% } else { %>
+      <p><i>this song has no description :( </i></p>
+    <% } %>
+
+    <h2>Tags:</h2>
+    <p class="tags"></p>
+  </div>
 </div>

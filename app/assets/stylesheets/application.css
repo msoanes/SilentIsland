@@ -152,7 +152,7 @@
    clear: both;
  }
 
- .title, .songs-list-item, .player, .song-form, .song-detail-info, .panel {
+ .title, .songs-list-item, .player, .song-form, .panel {
    color: #666;
    /*max-width: 590px;*/
    background: white;
@@ -505,8 +505,7 @@ button:active {
   right: 0;
   top: 5px;
   line-height: 1;
-  font-size: 16pt;
-  font-weight: bold;
+  font-size: 14pt;
   transition: color .15s;
   cursor: pointer;
 }
@@ -662,10 +661,6 @@ li.ui-menu-item.ui-state-focus {
   transition: none;
 }
 
-.song-detail {
-  padding: 1px 10px;
-}
-
 .song-count {
   font-size: 14pt;
   color: #bbb;
@@ -682,4 +677,19 @@ li.ui-menu-item.ui-state-focus {
 
 .page.visible {
   opacity: 1;
+}
+
+.song-detail-info {
+  padding: 1px 10px;
+  clear: left;
+}
+
+.song-detail-controls {
+  display: block;
+  position: relative;
+  float: left;
+  top: 25px;
+  left: 25px;
+  font-size: 20px;
+  width: 200px;
 }
