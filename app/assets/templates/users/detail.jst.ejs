@@ -11,8 +11,13 @@
   </div>
 </div>
 
-<p>
-  <%= model.escape('bio') %>
-</p>
+<div class="panel user-bio">
+    <h2>Bio: </h2>
+  <% if (model.escape('bio')) { %>
+    <span><%= model.escape('bio') %></span>
+  <% } else {%>
+    <span><i>This user has no bio.</i></span>
+  <% } %>
+</div>
 
 <div class="songs-index"></div>
