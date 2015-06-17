@@ -92,9 +92,21 @@ SilentIsland.Routers.Router = Backbone.Router.extend({
   },
 
   _swapView: function (view) {
-    this._currentView && this._currentView.remove();
-    this.$rootEl.html(view.$el);
-    this._currentView = view.render();
-    view.onRender && view.onRender();
+    var router = this;
+    var previousView = router._currentView;
+    if (previousView) {
+      previousView.transitionOut(function () {
+        previousView.remove();
+        router._currentView = view.transitionRender({ page: true });
+        router.$rootEl.append(view.$el);
+        view.transitionIn();
+        view.onRender && view.onRender();
+      });
+    } else {
+      router._currentView = view.transitionRender({ page: true });
+      router.$rootEl.append(view.$el);
+      view.transitionIn();
+      view.onRender && view.onRender();
+    }
   }
 });
