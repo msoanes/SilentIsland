@@ -18,6 +18,7 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
+//= require transition_view
 //= require composite_view
 //= require silent_island
 //= require_tree ./utils
