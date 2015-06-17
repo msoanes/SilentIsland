@@ -1,4 +1,10 @@
-<% for(var i = 0; i < 3 && i < tags.length; i++ ) { %>
+
+<% var max = tags.length %>
+<% if (typeof listAll !== 'undefined') { %>
+  <% max = (max > 3 ? 3 : max) %>
+<% } %>
+
+<% for(var i = 0; i < max; i++ ) { %>
   <span class="tag" data-id="<%= tags[i].id %>">
     <%= _.escape(tags[i].label) %>
   </span>
