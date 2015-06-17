@@ -4,10 +4,10 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
   initialize: function () {
     this.currentSong = new SilentIsland.Models.Song();
     this.listenTo(this.collection, 'play', this.switchSong);
-    var seeker = new SilentIsland.Views.Seeker();
-    var volumeControl = new SilentIsland.Views.VolumeControl();
-    this.addSubview('.song-controls', seeker);
-    this.addSubview('.song-controls', volumeControl);
+    this.seeker = new SilentIsland.Views.Seeker();
+    this.volumeControl = new SilentIsland.Views.VolumeControl();
+    this.addSubview('.song-controls', this.seeker);
+    this.addSubview('.song-controls', this.volumeControl);
   },
 
   events: {
@@ -31,8 +31,8 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
     this.$audio.on('loadedmetadata', this.setInfo);
     this.$audio.on('timeupdate', this.updateCurrentTime);
     this.$audio.on('ended', this.endPlay);
-    this.subviews('.song-controls').toArray()[0].$audio = this.$audio;
-    this.subviews('.song-controls').toArray()[1].$audio = this.$audio;
+    this.seeker.$audio = this.$audio;
+    this.volumeControl.$audio = this.$audio;
   },
 
   switchSong: function (newSong) {
@@ -45,6 +45,8 @@ SilentIsland.Views.AudioPlayer = Backbone.CompositeView.extend({
       this.$('.song-title').text(this.currentSong.escape('title'));
       this.$('.song-uploader').text(_.escape(this.currentSong.get('uploader').username));
       this.$('.song-uploader').data('id', this.currentSong.get('uploader').id);
+      this.$('.time-elapsed').text('0:00');
+      this.seeker.resetVal();
     } else {
       this.togglePlay();
     }
