@@ -1,6 +1,6 @@
 
 <% var max = tags.length %>
-<% if (typeof listAll !== 'undefined') { %>
+<% if (!listAll) { %>
   <% max = (max > 3 ? 3 : max) %>
 <% } %>
 
