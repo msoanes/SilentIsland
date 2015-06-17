@@ -1,4 +1,4 @@
-Backbone.CompositeView = Backbone.View.extend({
+Backbone.CompositeView = SilentIslandBaseView.extend({
   addSubview: function (selector, subview, prepend) {
     if (prepend) {
       this.subviews(selector).unshift(subview);
