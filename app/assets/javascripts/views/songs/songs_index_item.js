@@ -26,7 +26,7 @@ SilentIsland.Views.SongsIndexItem = Backbone.CompositeView.extend({
     this.$el.html(this.template({ song: this.model }));
     this.attachSubviews();
     if (this.model === SilentIsland.player.currentSong) {
-      this.$el.addClass('active');
+      this.addPlayingClass();
     }
     this.onRender();
     return this;
