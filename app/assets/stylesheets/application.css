@@ -503,32 +503,25 @@ button:active {
   position: absolute;
   height: 20px;
   right: 0;
-  top: 0;
-  font-size: 24pt;
+  top: 5px;
+  line-height: 1;
+  font-size: 16pt;
   font-weight: bold;
   transition: color .15s;
   cursor: pointer;
 }
 
-.song-item-controls div {
-  float: left;
+.song-item-controls span {
+  /*float: left;*/
+  transition: color 0.15s;
 }
 
-.song-item-controls div:hover {
+.song-item-controls span:hover {
   color: #f50;
 }
 
-.song-item-controls div:active {
+.song-item-controls span:active {
   color: #d30;
-}
-
-.queue .glyphicon-play {
-  position: relative;
-  left: 12px;
-}
-
-.queue .glyphicon-plus {
-  font-size: 10pt;
 }
 
 .play-queue-item {

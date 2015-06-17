@@ -10,14 +10,13 @@
 
   <div class="song-item-controls">
     <% if (SilentIsland.currentUser.get('id') === song.get('uploader').id) { %>
-      <div class="edit">
-        <span class="glyphicon glyphicon-edit"></span>
-      </div>
+      <span class="edit">
+        edit
+      </span> |
     <% } %>
-    <div class="queue">
-      <span class="glyphicon glyphicon-play"></span>
-      <span class="glyphicon glyphicon-plus"></span>
-    </div>
+    <span class="queue">
+      queue
+    </span>
   </div>
   <span class="upload-date">
     Uploaded
