@@ -25,9 +25,6 @@ SilentIsland.Views.SongDetail = Backbone.CompositeView.extend({
     if (this.model === SilentIsland.player.currentSong) {
       this.$el.addClass('active')
     }
-    if (SilentIsland.player.currentSong.get('id') === undefined) {
-      this.model.trigger('play', this.model);
-    }
     var tagView = this.subviews('.tags').toArray()[0]
     tagView.collection = this.model.get('tags') || [];
     tagView.render();

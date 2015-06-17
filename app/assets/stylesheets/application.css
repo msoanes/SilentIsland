@@ -340,7 +340,7 @@ input.volume {
    color: #f50;
  }
 
- .active.songs-list-item .play-button {
+ .active .play-button {
    background-color: #f50;
  }
 

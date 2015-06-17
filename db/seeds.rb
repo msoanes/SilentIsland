@@ -13,6 +13,9 @@ User.create!(username: 'pitx', password: 'password')
 User.create!(username: '_ghost', password: 'password')
 User.create!(username: 'zapac', password: 'password')
 User.create!(username: 'gmz', password: 'password')
+User.create!(username: 'djlang59', password: 'password')
+User.create!(username: '7oop3d', password: 'password')
+
 puts 'Created users!'
 
 genres =
@@ -24,6 +27,34 @@ song_hashes = [
     uploader_id: 1,
     tag_labels: ['piano', 'chill', 'sad', 'strings', 'electronic']
   },
+
+  {
+    title: 'Reverie (small theme)',
+    url: 'http://ccmixter.org/content/_ghost/_ghost_-_Reverie_(small_theme).mp3',
+    uploader_id: 4,
+    tag_labels: ['guitar', 'chill', 'sad', 'acoustic']
+  },
+
+  # {
+  #   title: 'Drops of H2O',
+  #   # url: 'http://ccmixter.org/content/_ghost/_ghost_-_Reverie_(small_theme).mp3',
+  #   uploader_id: 7,
+  #   tag_labels: ['chill', 'beats', 'electronic']
+  # },
+  #
+  # {
+  #   title: 'Feeling Dark',
+  #   # url: 'http://ccmixter.org/content/_ghost/_ghost_-_Reverie_(small_theme).mp3',
+  #   uploader_id: 8,
+  #   tag_labels: ['dark', 'beats', 'electronic']
+  # },
+  #
+  # {
+  #   title: 'Plan Your Escape',
+  #   # url: 'http://ccmixter.org/content/_ghost/_ghost_-_Reverie_(small_theme).mp3',
+  #   uploader_id: 8,
+  #   tag_labels: ['dark', 'beats', 'electronic']
+  # },
 
   {
     title: 'The Long Goodbye',
@@ -63,13 +94,13 @@ song_hashes = [
 
 puts 'Creating songs...'
 
-10.times do |new_songs_num|
+# 10.times do |new_songs_num|
   song_hashes.each_with_index do |song_hash, idx|
     puts "#{idx}/6"
-    song_hash[:title] += new_songs_num.to_s
+    song_hash[:title]
     Song.create!(song_hash)
   end
-end
+# end
 
 puts 'Adding filler tags'
 genres = File.readlines("#{Dir.pwd}/lib/assets/genres.txt").map(&:chomp)
