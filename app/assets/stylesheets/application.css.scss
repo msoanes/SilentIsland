@@ -14,10 +14,10 @@
  *= require_self
  */
  html {
-   background-color: #fafafa;
    -webkit-user-select: none;
    user-select: none;
    overflow-x: hidden;
+   background-color: #eee;
  }
 
  h1, h2, h3, h4, h5, h6 {
@@ -457,19 +457,28 @@ button:active {
 }
 
 .auth-form {
+  color: white;
   text-align: center;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);;
+  opacity: 0.8;
   width: 600px;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 100px auto 0px auto;
+  padding: 20px 20px 40px 20px;
   top: 50px;
+
 }
 
 .auth-form input {
   box-sizing: margin-box;
-  width: 50%;
+  width: 300px;
   margin: 5px auto;
   display: block;
+  opacity: 0.8;
+  transition: opacity 0.4s;
+}
+
+.auth-form input:focus {
+  opacity: 1;
 }
 
 .play-queue {
@@ -696,4 +705,53 @@ li.ui-menu-item.ui-state-focus {
 
 .user-bio {
   padding: 10px;
+}
+
+.top-bar {
+  position: relative;
+  height: 98px;
+  width: 100%;
+  padding: none;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.top-bar img {
+  left: -10px;
+  float: left;
+  margin: 0;
+  background-color: #f50;
+}
+
+.top-bar-gradient {
+  height: 100%;
+  background: linear-gradient(90deg, #f50, #d30);
+  overflow: hidden;
+}
+
+.background {
+  z-index: -1000;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background: asset_url('landing_bg.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+.landing-info-panel {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fcfcfc;
+  padding: 30px;
+}
+
+.landing-info-panel h1 {
+  font-size: 28pt;
+  font-weight: lighter;
+}
+
+.auth-form a {
+  color: white;
+  text-shadow: 2px 2px 2px gray;
 }
