@@ -519,16 +519,16 @@ button:active {
   cursor: pointer;
 }
 
-.song-item-controls span {
+.song-view-controls span {
   /*float: left;*/
   transition: color 0.15s;
 }
 
-.song-item-controls span:hover {
+.song-view-controls span:hover {
   color: #f50;
 }
 
-.song-item-controls span:active {
+.song-view-controls span:active {
   color: #d30;
 }
 

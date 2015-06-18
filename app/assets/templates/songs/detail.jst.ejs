@@ -14,7 +14,7 @@
     <div class="play-symbol glyphicon-play glyphicon"></div>
   </div>
 
-  <div class="song-detail-controls">
+  <div class="song-detail-controls song-view-controls">
     <% if (song.get('uploader')) { %>
       <% if (SilentIsland.currentUser.get('id') === song.get('uploader').id) { %>
         <span class="edit">

@@ -8,7 +8,7 @@
     <%= _.escape(song.get('uploader').username) %>
   </p>
 
-  <div class="song-item-controls">
+  <div class="song-item-controls song-view-controls">
     <% if (SilentIsland.currentUser.get('id') === song.get('uploader').id) { %>
       <span class="edit">
         edit
